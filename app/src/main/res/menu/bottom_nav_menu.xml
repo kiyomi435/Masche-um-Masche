@@ -3,17 +3,17 @@
     <item
         android:id="@+id/nav_projects"
         android:title="Projekte"
-        android:icon="@android:drawable/ic_menu_agenda"/>
+        android:icon="@drawable/icon_projects"/>
     <item
-        android:id="@+id/nav_yarn"
-        android:title="Wolle"
-        android:icon="@android:drawable/ic_menu_gallery"/>
+        android:id="@+id/nav_materials"
+        android:title="Material"
+        android:icon="@drawable/icon_material"/>
     <item
         android:id="@+id/nav_patterns"
         android:title="Muster"
-        android:icon="@android:drawable/ic_menu_view"/>
+        android:icon="@drawable/icon_pattern"/>
     <item
         android:id="@+id/nav_profile"
         android:title="Profil"
-        android:icon="@android:drawable/ic_menu_manage"/>
+        android:icon="@drawable/icon_profile"/>
 </menu>
