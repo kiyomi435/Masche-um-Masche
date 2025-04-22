@@ -26,7 +26,6 @@ public class ProjectsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         exampleParts.add(new ProjectPart("Teil1", 20, 80));
         exampleParts.add(new ProjectPart("Teil2", 30, 20));
 
@@ -43,12 +42,6 @@ public class ProjectsActivity extends BaseActivity {
         projectListContainer = findViewById(R.id.project_list_container);
 
         selectFinishedProjects(false);
-//        // add projects to project_list_container
-//        addProjectView(container, "Sommerpulli", 5, 60);
-//        addProjectView(container, "Mütze", 2, 30);
-//        addProjectView(container, "Decke", 8, 80);
-//        addProjectView(container, "Tasche", 0, 10);
-//        addProjectView(container, "Teddy", 10, 100);
 
 
         btnProgress = findViewById(R.id.btn_progress);
