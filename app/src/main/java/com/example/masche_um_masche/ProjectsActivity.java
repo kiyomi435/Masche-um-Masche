@@ -1,7 +1,7 @@
 package com.example.masche_um_masche;
 
-import android.app.Activity;
 import android.content.Intent;
+import java.util.List;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,25 +13,37 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
-public class ProjectsActivity extends BaseActivity {
+import java.util.ArrayList;
 
+public class ProjectsActivity extends BaseActivity {
+    LinearLayout projectListContainer;
+    private final List<Project> allProjects = new ArrayList<>();
     Button btnProgress;
     Button btnFinished;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //create Projects
+        allProjects.add(new Project("Sommerpulli", 5, 60));
+        allProjects.add(new Project("Mütze", 2, 30));
+        allProjects.add(new Project("Decke", 8, 80));
+        allProjects.add(new Project("Tasche", 0, 10));
+        allProjects.add(new Project("Teddy", 10, 100));
+
         setContentView(R.layout.activity_projects);
         createBottomNavigation(R.id.nav_projects);
 
-        LinearLayout container = findViewById(R.id.project_list_container);
+        projectListContainer = findViewById(R.id.project_list_container);
 
-        // Einfach ein paar Projekte hinzufügen
-        addProjectView(container, "Sommerpulli", 5, 60);
-        addProjectView(container, "Mütze", 2, 30);
-        addProjectView(container, "Decke", 8, 80);
-        addProjectView(container, "Tasche", 0, 10);
-        addProjectView(container, "Teddy", 10, 100);
+        selectFinishedProjects(false);
+//        // add projects to project_list_container
+//        addProjectView(container, "Sommerpulli", 5, 60);
+//        addProjectView(container, "Mütze", 2, 30);
+//        addProjectView(container, "Decke", 8, 80);
+//        addProjectView(container, "Tasche", 0, 10);
+//        addProjectView(container, "Teddy", 10, 100);
 
 
         btnProgress = findViewById(R.id.btn_progress);
@@ -44,6 +56,7 @@ public class ProjectsActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 selectButton(btnProgress, btnFinished);
+                selectFinishedProjects(false);
             }
         });
 
@@ -51,21 +64,21 @@ public class ProjectsActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 selectButton(btnFinished, btnProgress);
+                selectFinishedProjects(true);
             }
         });
     }
 
-    private void addProjectView(LinearLayout container, String name, int teile, int progress) {
-        if(progress < 100) {
+    private void addProjectView(LinearLayout container, Project project) {
             View projectView = LayoutInflater.from(this).inflate(R.layout.project_item, container, false);
 
             TextView nameText = projectView.findViewById(R.id.text_project_name);
             TextView teileText = projectView.findViewById(R.id.text_project_parts);
             ProgressBar progressBar = projectView.findViewById(R.id.progress_project);
 
-            nameText.setText(name);
-            teileText.setText(teile + " Teile");
-            progressBar.setProgress(progress);
+            nameText.setText(project.name);
+            teileText.setText(project.parts + " Teile");
+            progressBar.setProgress(project.progress);
 
             projectView.setOnClickListener(v -> {
                 Intent intent = new Intent(ProjectsActivity.this, ProjectActivity.class);
@@ -73,7 +86,6 @@ public class ProjectsActivity extends BaseActivity {
             });
 
             container.addView(projectView);
-        }
     }
 
     private void selectButton(Button selected, Button deselected) {
@@ -84,5 +96,18 @@ public class ProjectsActivity extends BaseActivity {
         // Nicht aktiven Button neutral darstellen
         deselected.setBackgroundTintList(ContextCompat.getColorStateList(this, android.R.color.darker_gray));
         deselected.setTextColor(Color.WHITE);
+    }
+
+    // zeigt Projekte basierend auf Fortschritt
+    private void selectFinishedProjects(boolean showFinished) {
+        projectListContainer.removeAllViews(); // vorherigen Inhalt löschen
+
+        for (Project project : allProjects) {
+            if (!showFinished && project.progress < 100) { //draw all in progress projects
+                addProjectView(projectListContainer, project);
+            } else if (showFinished && project.progress >= 100) { //draw all finsihed projects
+                addProjectView(projectListContainer, project);
+            }
+        }
     }
 }

@@ -10,7 +10,7 @@
         android:icon="@drawable/icon_material"/>
     <item
         android:id="@+id/nav_patterns"
-        android:title="Muster"
+        android:title="Patterns"
         android:icon="@drawable/icon_pattern"/>
     <item
         android:id="@+id/nav_profile"
