@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class ProjectsActivity extends BaseActivity {
     LinearLayout projectListContainer;
+    List<ProjectPart> exampleParts = new ArrayList<>();
     private final List<Project> allProjects = new ArrayList<>();
     Button btnProgress;
     Button btnFinished;
@@ -25,12 +26,16 @@ public class ProjectsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        exampleParts.add(new ProjectPart("Teil1", 20, 80));
+        exampleParts.add(new ProjectPart("Teil2", 30, 20));
+
         //create Projects
-        allProjects.add(new Project("Sommerpulli", 5, 60));
-        allProjects.add(new Project("Mütze", 2, 30));
-        allProjects.add(new Project("Decke", 8, 80));
-        allProjects.add(new Project("Tasche", 0, 10));
-        allProjects.add(new Project("Teddy", 10, 100));
+        allProjects.add(new Project("Sommerpulli", exampleParts, 60));
+        allProjects.add(new Project("Mütze", exampleParts, 30));
+        allProjects.add(new Project("Decke", exampleParts, 80));
+        allProjects.add(new Project("Tasche", exampleParts, 10));
+        allProjects.add(new Project("Teddy", exampleParts, 100));
 
         setContentView(R.layout.activity_projects);
         createBottomNavigation(R.id.nav_projects);
@@ -77,7 +82,7 @@ public class ProjectsActivity extends BaseActivity {
             ProgressBar progressBar = projectView.findViewById(R.id.progress_project);
 
             nameText.setText(project.name);
-            teileText.setText(project.parts + " Teile");
+            teileText.setText(project.parts.size() + " Teile");
             progressBar.setProgress(project.progress);
 
             projectView.setOnClickListener(v -> {

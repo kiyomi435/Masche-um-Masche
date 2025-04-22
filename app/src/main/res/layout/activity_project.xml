@@ -40,6 +40,69 @@
                 app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/button_toggle_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="8dp">
+                    <Button
+                        android:id="@+id/btn_progress"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Maße"
+                        android:backgroundTint="@color/design_default_color_primary"
+                        android:textColor="@android:color/white" />
+                    <Button
+                        android:id="@+id/btn_finished"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Pattern"
+                        android:backgroundTint="@color/design_default_color_primary"
+                        android:textColor="@android:color/white"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:id="@+id/project_parts_list_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="0dp"
+                        android:paddingBottom="0dp"/>
+                </ScrollView>
+
+            </LinearLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Projekt hinzufügen"
+                android:src="@drawable/icon_add"
+                app:backgroundTint="@color/design_default_color_primary"
+                app:tint="@android:color/white" />
+        </FrameLayout>
+    </LinearLayout>
 </RelativeLayout>
