@@ -24,6 +24,6 @@ public abstract class IMaterial {
     public void setLagerort(String lagerort) { this.lagerort = lagerort; }
     public void setNotizen(String notizen) { this.notizen = notizen; }
 
-    public abstract String getKurzInfo();
+    public abstract String getSummaryInfo();
 }
 
