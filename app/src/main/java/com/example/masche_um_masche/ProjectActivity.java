@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.masche_um_masche.objects.ProjectPart;
+
 import java.util.ArrayList;
 import java.util.List;
 

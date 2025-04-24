@@ -1,4 +1,4 @@
-package com.example.masche_um_masche;
+package com.example.masche_um_masche.objects;
 
 public class OtherUtensil extends IMaterial {
     private String itemType;

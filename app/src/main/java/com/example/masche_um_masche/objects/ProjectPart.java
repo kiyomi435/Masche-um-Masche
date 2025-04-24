@@ -1,9 +1,9 @@
-package com.example.masche_um_masche;
+package com.example.masche_um_masche.objects;
 
 public class ProjectPart {
-    String name;
-    int rows;
-    int progress;
+    public String name;
+    public int rows;
+    public int progress;
 
     public ProjectPart(String name, int rows, int progress) {
         this.name = name;

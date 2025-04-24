@@ -11,7 +11,11 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.masche_um_masche.objects.*;
+
 import androidx.core.content.ContextCompat;
+
+import com.example.masche_um_masche.objects.Project;
 
 import java.util.ArrayList;
 
