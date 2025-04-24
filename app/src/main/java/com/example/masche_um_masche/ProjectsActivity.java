@@ -71,7 +71,7 @@ public class ProjectsActivity extends BaseActivity {
             View projectView = LayoutInflater.from(this).inflate(R.layout.project_item, container, false);
 
             TextView nameText = projectView.findViewById(R.id.text_project_name);
-            TextView teileText = projectView.findViewById(R.id.text_project_parts);
+            TextView teileText = projectView.findViewById(R.id.text_material_details);
             ProgressBar progressBar = projectView.findViewById(R.id.progress_project);
 
             nameText.setText(project.name);

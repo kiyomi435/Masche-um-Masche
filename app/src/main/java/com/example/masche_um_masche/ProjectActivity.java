@@ -10,12 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +45,7 @@ public class ProjectActivity extends Activity {
         View projectView = LayoutInflater.from(this).inflate(R.layout.project_item, container, false);
 
         TextView nameText = projectView.findViewById(R.id.text_project_name);
-        TextView teileText = projectView.findViewById(R.id.text_project_parts);
+        TextView teileText = projectView.findViewById(R.id.text_material_details);
         ProgressBar progressBar = projectView.findViewById(R.id.progress_project);
 
         nameText.setText(part.name);
