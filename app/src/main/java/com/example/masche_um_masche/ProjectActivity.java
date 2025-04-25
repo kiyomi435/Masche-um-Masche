@@ -50,9 +50,9 @@ public class ProjectActivity extends Activity {
         TextView teileText = projectView.findViewById(R.id.text_material_details);
         ProgressBar progressBar = projectView.findViewById(R.id.progress_project);
 
-        nameText.setText(part.name);
-        teileText.setText(part.rows + " Reihen");
-        progressBar.setProgress(part.progress);
+        nameText.setText(part.getName());
+        teileText.setText(part.getRows() + " Reihen");
+        progressBar.setProgress(part.getProgress());
 
         projectView.setOnClickListener(v -> {
             Intent intent = new Intent(ProjectActivity.this, ProjectPartActivity.class);

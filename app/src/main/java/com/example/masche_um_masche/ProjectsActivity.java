@@ -78,9 +78,9 @@ public class ProjectsActivity extends BaseActivity {
             TextView teileText = projectView.findViewById(R.id.text_material_details);
             ProgressBar progressBar = projectView.findViewById(R.id.progress_project);
 
-            nameText.setText(project.name);
-            teileText.setText(project.parts.size() + " Teile");
-            progressBar.setProgress(project.progress);
+            nameText.setText(project.getName());
+            teileText.setText(project.getParts().size() + " Teile");
+            progressBar.setProgress(project.getProgress());
 
             projectView.setOnClickListener(v -> {
                 Intent intent = new Intent(ProjectsActivity.this, ProjectActivity.class);
@@ -105,9 +105,9 @@ public class ProjectsActivity extends BaseActivity {
         projectListContainer.removeAllViews(); // vorherigen Inhalt löschen
 
         for (Project project : allProjects) {
-            if (!showFinished && project.progress < 100) { //draw all in progress projects
+            if (!showFinished && project.getProgress() < 100) { //draw all in progress projects
                 addProjectView(projectListContainer, project);
-            } else if (showFinished && project.progress >= 100) { //draw all finsihed projects
+            } else if (showFinished && project.getProgress() >= 100) { //draw all finsihed projects
                 addProjectView(projectListContainer, project);
             }
         }

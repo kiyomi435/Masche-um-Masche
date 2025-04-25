@@ -38,8 +38,8 @@ public class MaterialsActivity extends BaseActivity {
         TextView nameText = projectView.findViewById(R.id.text_material_name);
         TextView detailsText = projectView.findViewById(R.id.text_material_details);
 
-        nameText.setText(part.name);
-        detailsText.setText(part.rows + " Reihen");
+        nameText.setText(part.getName());
+        detailsText.setText(part.getRows() + " Reihen");
 
         projectView.setOnClickListener(v -> {
             Intent intent = new Intent(MaterialsActivity.this, ProjectPartActivity.class);
