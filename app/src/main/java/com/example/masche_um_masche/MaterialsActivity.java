@@ -2,7 +2,6 @@ package com.example.masche_um_masche;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,19 +10,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.masche_um_masche.objects.CrochetHook;
-import com.example.masche_um_masche.objects.IMaterial;
+import com.example.masche_um_masche.objects.Material;
 import com.example.masche_um_masche.objects.KnittingNeedle;
 import com.example.masche_um_masche.objects.OtherUtensil;
-import com.example.masche_um_masche.objects.ProjectPart;
 import com.example.masche_um_masche.objects.Wool;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class MaterialsActivity extends BaseActivity {
     LinearLayout materialListContainer;
-    private List<IMaterial> allMaterials;
+    private List<Material> allMaterials;
     private String currentFilter = "All";
 
 
@@ -41,10 +38,10 @@ public class MaterialsActivity extends BaseActivity {
         displayMaterials(materialListContainer, allMaterials);
     }
 
-    private void displayMaterials(LinearLayout container, List<IMaterial> materialsToDisplay) {
+    private void displayMaterials(LinearLayout container, List<Material> materialsToDisplay) {
         container.removeAllViews(); // vorherige Views löschen
 
-        for (IMaterial mat : materialsToDisplay) {
+        for (Material mat : materialsToDisplay) {
             View materialView = LayoutInflater.from(this).inflate(R.layout.material_item, container, false);
 
             TextView nameText = materialView.findViewById(R.id.text_material_name);
@@ -64,7 +61,7 @@ public class MaterialsActivity extends BaseActivity {
 
     private void setupFilterButtons() {
         LinearLayout filterBar = findViewById(R.id.filter_bar);
-        String[] filters = {"All", "Wool", "KnittingNeedle", "CrochetHook", "OtherUtensils"};
+        String[] filters = {"All", "Wool", "KnittingNeedle", "CrochetHook", "OtherUtensil"};
 
         for (String filter : filters) {
             Button btn = new Button(this);
@@ -86,8 +83,8 @@ public class MaterialsActivity extends BaseActivity {
             btn.setOnClickListener(v -> {
                 currentFilter = filter;
 
-                List<IMaterial> filteredList = new ArrayList<>();
-                for (IMaterial m : allMaterials) {
+                List<Material> filteredList = new ArrayList<>();
+                for (Material m : allMaterials) {
                     if (filter.equals("All") || m.getClass().getSimpleName().equalsIgnoreCase(filter.replace(" ", ""))) {
                         filteredList.add(m);
                     }

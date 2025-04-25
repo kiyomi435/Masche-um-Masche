@@ -1,6 +1,6 @@
 package com.example.masche_um_masche.objects;
 
-public class CrochetHook extends IMaterial {
+public class CrochetHook extends Material {
     private String size;
     private String gripType;
     private String material;

@@ -1,6 +1,6 @@
 package com.example.masche_um_masche.objects;
 
-public class KnittingNeedle extends IMaterial {
+public class KnittingNeedle extends Material {
     private String needleType;
     private String size;
     private String length;

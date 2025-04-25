@@ -1,12 +1,12 @@
 package com.example.masche_um_masche.objects;
 
-public abstract class IMaterial {
+public abstract class Material {
     private String name;
     private String materialArt;
     private String lagerort;
     private String notizen;
 
-    public IMaterial(String name, String materialArt, String lagerort, String notizen) {
+    public Material(String name, String materialArt, String lagerort, String notizen) {
         this.name = name;
         this.materialArt = materialArt;
         this.lagerort = lagerort;

@@ -1,6 +1,6 @@
 package com.example.masche_um_masche.objects;
 
-public class OtherUtensil extends IMaterial {
+public class OtherUtensil extends Material {
     private String itemType;
     private String description;
     private String material;
