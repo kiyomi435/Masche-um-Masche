@@ -30,23 +30,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/button_toggle_group"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="8dp">
-                <Button
-                    android:id="@+id/btn_progress"
-                    android:layout_width="50dp"
-                    android:layout_weight="1"
-                    android:layout_height="50dp"
-                    android:text="In Bearbeitung"
-                    android:backgroundTint="@color/design_default_color_primary"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/filter_bar"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"/>
+                </HorizontalScrollView>
 
                 <ScrollView
                     android:layout_width="match_parent"

@@ -1,10 +1,12 @@
 package com.example.masche_um_masche;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,11 +18,13 @@ import com.example.masche_um_masche.objects.ProjectPart;
 import com.example.masche_um_masche.objects.Wool;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class MaterialsActivity extends BaseActivity {
     LinearLayout materialListContainer;
     private List<IMaterial> allMaterials;
+    private String currentFilter = "All";
 
 
     @Override
@@ -29,48 +33,71 @@ public class MaterialsActivity extends BaseActivity {
         setContentView(R.layout.activity_materials);
         createBottomNavigation(R.id.nav_materials);
 
+        setupFilterButtons();
         initializeMaterials();
 
         materialListContainer = findViewById(R.id.material_list_container);
 
-        for (IMaterial material : allMaterials) {
-            //addProjectPartView(materialListContainer, part);
-            displayMaterials(materialListContainer, material);
+        displayMaterials(materialListContainer, allMaterials);
+    }
+
+    private void displayMaterials(LinearLayout container, List<IMaterial> materialsToDisplay) {
+        container.removeAllViews(); // vorherige Views löschen
+
+        for (IMaterial mat : materialsToDisplay) {
+            View materialView = LayoutInflater.from(this).inflate(R.layout.material_item, container, false);
+
+            TextView nameText = materialView.findViewById(R.id.text_material_name);
+            TextView detailsText = materialView.findViewById(R.id.text_material_details);
+
+            nameText.setText(mat.getName());
+            detailsText.setText(mat.getSummaryInfo());
+
+            materialView.setOnClickListener(v -> {
+                Intent intent = new Intent(MaterialsActivity.this, ProjectPartActivity.class);
+                startActivity(intent);
+            });
+
+            container.addView(materialView);
         }
     }
 
-    private void addProjectPartView(LinearLayout container, ProjectPart part) {
-        View projectView = LayoutInflater.from(this).inflate(R.layout.material_item, container, false);
+    private void setupFilterButtons() {
+        LinearLayout filterBar = findViewById(R.id.filter_bar);
+        String[] filters = {"All", "Wool", "KnittingNeedle", "CrochetHook", "OtherUtensils"};
 
-        TextView nameText = projectView.findViewById(R.id.text_material_name);
-        TextView detailsText = projectView.findViewById(R.id.text_material_details);
+        for (String filter : filters) {
+            Button btn = new Button(this);
+            btn.setText(filter);
+            btn.setAllCaps(false);
+            btn.setTextSize(14);
+            btn.setPadding(30, 10, 30, 10);
 
-        nameText.setText(part.getName());
-        detailsText.setText(part.getRows() + " Reihen");
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(16, 0, 16, 0);
+            btn.setLayoutParams(params);
 
-        projectView.setOnClickListener(v -> {
-            Intent intent = new Intent(MaterialsActivity.this, ProjectPartActivity.class);
-            startActivity(intent);
-        });
+            btn.setBackgroundResource(R.drawable.filter_button_background); // siehe unten
+            btn.setTextColor(Color.BLACK);
 
-        container.addView(projectView);
-    }
+            btn.setOnClickListener(v -> {
+                currentFilter = filter;
 
-    private void displayMaterials(LinearLayout container, IMaterial mat) {
-        View projectView = LayoutInflater.from(this).inflate(R.layout.material_item, container, false);
+                List<IMaterial> filteredList = new ArrayList<>();
+                for (IMaterial m : allMaterials) {
+                    if (filter.equals("All") || m.getClass().getSimpleName().equalsIgnoreCase(filter.replace(" ", ""))) {
+                        filteredList.add(m);
+                    }
+                }
 
-        TextView nameText = projectView.findViewById(R.id.text_material_name);
-        TextView detailsText = projectView.findViewById(R.id.text_material_details);
+                displayMaterials(materialListContainer, filteredList);
+            });
 
-        nameText.setText(mat.getName());
-        detailsText.setText(mat.getSummaryInfo());
-
-        projectView.setOnClickListener(v -> {
-            Intent intent = new Intent(MaterialsActivity.this, ProjectPartActivity.class);
-            startActivity(intent);
-        });
-
-        container.addView(projectView);
+            filterBar.addView(btn);
+        }
     }
 
 
