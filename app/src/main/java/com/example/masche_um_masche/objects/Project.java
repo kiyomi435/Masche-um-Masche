@@ -5,12 +5,14 @@ import java.util.List;
 public class Project {
     private String name;
     private List<ProjectPart> parts;
-    private int progress;
+    private int currentRows;
+    private int allRows;
 
-    public Project(String name, List<ProjectPart> parts, int progress) {
+    public Project(String name, List<ProjectPart> parts, int allRows) {
         this.name = name;
         this.parts = parts;
-        this.progress = progress;
+        this.allRows = allRows;
+        this.currentRows = 0;
     }
 
     public String getName() {
@@ -29,11 +31,24 @@ public class Project {
         this.parts = parts;
     }
 
-    public int getProgress() {
-        return progress;
+    public int getCurrentRows() {
+        return currentRows;
     }
 
-    public void setProgress(int progress) {
-        this.progress = progress;
+    public void setCurrentRows(int currentRows) {
+        this.currentRows = currentRows;
+    }
+
+    public int getAllRows() {
+        return allRows;
+    }
+
+    public void setAllRows(int allRows) {
+        this.allRows = allRows;
+    }
+
+    public int getProgress() {
+        if (allRows == 0) return 0;
+        return (int) ((currentRows / (float) allRows) * 100);
     }
 }
