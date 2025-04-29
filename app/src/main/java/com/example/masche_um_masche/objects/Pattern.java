@@ -8,13 +8,12 @@ public class Pattern {
     private String notes;
 
     public Pattern(String name, String category, String pdfPath,
-                   String needleType, String needleSize, String notes) {
+                   String needleType, String needleSize) {
         this.name = name;
         this.category = category;
         this.pdfPath = pdfPath;
         this.needleType = needleType;
         this.needleSize = needleSize;
-        this.notes = notes;
     }
 
     // Getter
@@ -52,7 +51,7 @@ public class Pattern {
 
     // Für Kurzansicht z. B. in der CardView
     public String getSummaryInfo() {
-        return "Kategorie: " + category + "\nNadel: " + needleType + " " + needleSize;
+        return category + "\n" + needleType + " " + needleSize;
     }
 }
 

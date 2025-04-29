@@ -2,25 +2,25 @@ package com.example.masche_um_masche.objects;
 
 public abstract class Material {
     private String name;
-    private String materialArt;
+    private String materialType;
     private String lagerort;
     private String notizen;
 
-    public Material(String name, String materialArt, String lagerort, String notizen) {
+    public Material(String name, String materialType, String lagerort, String notizen) {
         this.name = name;
-        this.materialArt = materialArt;
+        this.materialType = materialType;
         this.lagerort = lagerort;
         this.notizen = notizen;
     }
 
     // Getter und Setter
     public String getName() { return name; }
-    public String getMaterialArt() { return materialArt; }
+    public String getMaterialType() { return materialType; }
     public String getLagerort() { return lagerort; }
     public String getNotizen() { return notizen; }
 
     public void setName(String name) { this.name = name; }
-    public void setMaterialArt(String materialArt) { this.materialArt = materialArt; }
+    public void setMaterialType(String materialType) { this.materialType = materialType; }
     public void setLagerort(String lagerort) { this.lagerort = lagerort; }
     public void setNotizen(String notizen) { this.notizen = notizen; }
 
