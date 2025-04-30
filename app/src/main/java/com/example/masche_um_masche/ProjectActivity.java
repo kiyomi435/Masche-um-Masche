@@ -41,6 +41,8 @@ public class ProjectActivity extends Activity {
                 finish(); // Beendet die aktuelle Activity und geht zur vorherigen zurück
             }
         });
+
+
     }
 
     private void addProjectPartView(LinearLayout container, ProjectPart part) {

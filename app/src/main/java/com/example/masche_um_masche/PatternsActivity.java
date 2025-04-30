@@ -7,6 +7,7 @@ import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +42,8 @@ public class PatternsActivity extends BaseActivity {
         initializePatterns();         // 1. Erstelle Beispiel-Pattern
         setupFilterButtons();
         displayPatterns(patternListContainer, allPatterns);
+
+
     }
 
     private void displayPatterns(LinearLayout container, List<Pattern> patternsToDisplay) {

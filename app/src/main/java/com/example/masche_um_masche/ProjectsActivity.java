@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -44,6 +45,14 @@ public class ProjectsActivity extends BaseActivity {
         createBottomNavigation(R.id.nav_projects);
 
         projectListContainer = findViewById(R.id.project_list_container);
+
+        ImageView addPatternButton = findViewById(R.id.add_project);
+        addPatternButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProjectsActivity.this, NewProjectActivity.class);
+                startActivity(intent);            }
+        });
 
         selectFinishedProjects(false);
 
@@ -86,6 +95,7 @@ public class ProjectsActivity extends BaseActivity {
                 Intent intent = new Intent(ProjectsActivity.this, ProjectActivity.class);
                 startActivity(intent);
             });
+
 
             container.addView(projectView);
     }
