@@ -42,6 +42,14 @@ public class ProjectActivity extends Activity {
             }
         });
 
+        ImageView addPatternButton = findViewById(R.id.add_project_part);
+        addPatternButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProjectActivity.this, NewProjectPartActivity.class);
+                startActivity(intent);            }
+        });
+
 
     }
 

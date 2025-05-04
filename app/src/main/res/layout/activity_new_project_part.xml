@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_back_button"
+            android:contentDescription="Bearbeiten"
+            android:layout_gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        <TextView
+            android:id="@+id/text_neuer_projekt_teil_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:text="Neuer Teil" />
+
+        <Button
+            android:id="@+id/button_save_projekt_part"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="save"
+            android:layout_gravity="end" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+        <EditText
+            android:id="@+id/edit_projektpartname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name des Teils"
+            android:inputType="text"
+            />
+
+        <EditText
+            android:id="@+id/edit_maschenanzahl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Maschenanzahl"
+            android:inputType="number" />
+    </LinearLayout>
+
+
+
+</LinearLayout>
