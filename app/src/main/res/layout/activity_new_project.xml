@@ -8,13 +8,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
         <ImageView
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_back_button"
             android:contentDescription="Bearbeiten"
+            android:layout_gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
@@ -23,7 +25,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="neues projekt" />
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:text="Neues Projekt" />
 
         <Button
             android:id="@+id/button_save_projekt"
@@ -33,25 +38,34 @@
             android:layout_gravity="end" />
     </LinearLayout>
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp">
     <EditText
         android:id="@+id/edit_projektname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="projektname"
-        android:inputType="text" />
+        android:hint="Projektname"
+        android:inputType="text"
+        />
 
     <EditText
         android:id="@+id/edit_maschenanzahl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="maschenanzahl"
+        android:hint="Maschenanzahl"
         android:inputType="number" />
 
-    <Spinner
-        android:id="@+id/spinner_pattern"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/button_choose_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="wähle Pattern"
+        android:layout_gravity="start" />
+</LinearLayout>
+
 
 
 </LinearLayout>
