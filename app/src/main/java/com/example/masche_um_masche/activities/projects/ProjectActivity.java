@@ -1,4 +1,4 @@
-package com.example.masche_um_masche;
+package com.example.masche_um_masche.activities.projects;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.masche_um_masche.R;
 import com.example.masche_um_masche.objects.ProjectPart;
 
 import java.util.ArrayList;

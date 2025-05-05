@@ -1,8 +1,9 @@
-package com.example.masche_um_masche;
+package com.example.masche_um_masche.activities.profile;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.masche_um_masche.R;
+import com.example.masche_um_masche.activities.BaseActivity;
 
 public class ProfileActivity extends BaseActivity {
 

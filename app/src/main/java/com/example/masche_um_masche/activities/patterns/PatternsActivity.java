@@ -1,25 +1,19 @@
-package com.example.masche_um_masche;
+package com.example.masche_um_masche.activities.patterns;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.masche_um_masche.objects.CrochetHook;
-import com.example.masche_um_masche.objects.KnittingNeedle;
-import com.example.masche_um_masche.objects.Material;
-import com.example.masche_um_masche.objects.OtherUtensil;
+import com.example.masche_um_masche.activities.BaseActivity;
+import com.example.masche_um_masche.R;
+import com.example.masche_um_masche.activities.projects.ProjectPartActivity;
 import com.example.masche_um_masche.objects.Pattern;
-import com.example.masche_um_masche.objects.Wool;
 
 import java.util.ArrayList;
 import java.util.List;

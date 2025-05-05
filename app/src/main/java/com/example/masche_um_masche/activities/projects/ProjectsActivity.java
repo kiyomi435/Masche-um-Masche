@@ -1,4 +1,4 @@
-package com.example.masche_um_masche;
+package com.example.masche_um_masche.activities.projects;
 
 import android.content.Intent;
 import java.util.List;
@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.masche_um_masche.activities.BaseActivity;
+import com.example.masche_um_masche.R;
 import com.example.masche_um_masche.objects.*;
 
 import androidx.core.content.ContextCompat;

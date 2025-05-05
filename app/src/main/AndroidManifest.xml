@@ -13,31 +13,31 @@
         android:theme="@style/Theme.MascheumMasche"
         tools:targetApi="31">
         <activity
-            android:name=".NewPatternActivity"
+            android:name=".activities.patterns.NewPatternActivity"
             android:exported="false" />
         <activity
-            android:name=".NewProjectPartActivity"
+            android:name=".activities.projects.NewProjectPartActivity"
             android:exported="false" />
         <activity
-            android:name=".NewProjectActivity"
+            android:name=".activities.projects.NewProjectActivity"
             android:exported="false" />
         <activity
-            android:name=".ProjectPartActivity"
+            android:name=".activities.projects.ProjectPartActivity"
             android:exported="false" />
         <activity
-            android:name=".ProjectActivity"
+            android:name=".activities.projects.ProjectActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activities.profile.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".PatternsActivity"
+            android:name=".activities.patterns.PatternsActivity"
             android:exported="false" />
         <activity
-            android:name=".MaterialsActivity"
+            android:name=".activities.materials.MaterialsActivity"
             android:exported="false" />
         <activity
-            android:name=".ProjectsActivity"
+            android:name=".activities.projects.ProjectsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

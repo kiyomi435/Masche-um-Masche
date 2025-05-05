@@ -1,15 +1,11 @@
-package com.example.masche_um_masche;
+package com.example.masche_um_masche.activities.projects;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import com.example.masche_um_masche.R;
 
 public class NewProjectActivity extends Activity {
 

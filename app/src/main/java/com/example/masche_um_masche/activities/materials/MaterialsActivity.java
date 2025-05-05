@@ -1,4 +1,4 @@
-package com.example.masche_um_masche;
+package com.example.masche_um_masche.activities.materials;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.masche_um_masche.activities.BaseActivity;
+import com.example.masche_um_masche.R;
+import com.example.masche_um_masche.activities.projects.ProjectPartActivity;
 import com.example.masche_um_masche.objects.CrochetHook;
 import com.example.masche_um_masche.objects.Material;
 import com.example.masche_um_masche.objects.KnittingNeedle;

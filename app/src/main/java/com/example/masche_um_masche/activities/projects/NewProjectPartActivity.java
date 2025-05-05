@@ -1,11 +1,11 @@
-package com.example.masche_um_masche;
+package com.example.masche_um_masche.activities.projects;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.masche_um_masche.R;
 
 public class NewProjectPartActivity extends Activity {
 
