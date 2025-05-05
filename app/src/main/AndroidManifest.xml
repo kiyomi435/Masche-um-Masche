@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MascheumMasche"
         tools:targetApi="31">
         <activity
+            android:name=".NewPatternActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewProjectPartActivity"
             android:exported="false" />
         <activity

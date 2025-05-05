@@ -1,12 +1,13 @@
 package com.example.masche_um_masche;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class NewProjectPartActivity extends AppCompatActivity {
+public class NewProjectPartActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

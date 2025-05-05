@@ -43,6 +43,13 @@ public class PatternsActivity extends BaseActivity {
         setupFilterButtons();
         displayPatterns(patternListContainer, allPatterns);
 
+        ImageView addPatternButton = findViewById(R.id.add_pattern);
+        addPatternButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PatternsActivity.this, NewPatternActivity.class);
+                startActivity(intent);            }
+        });
 
     }
 
