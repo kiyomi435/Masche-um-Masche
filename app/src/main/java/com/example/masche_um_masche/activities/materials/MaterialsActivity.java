@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.masche_um_masche.activities.BaseActivity;
 import com.example.masche_um_masche.R;
+import com.example.masche_um_masche.activities.patterns.NewPatternActivity;
+import com.example.masche_um_masche.activities.patterns.PatternsActivity;
 import com.example.masche_um_masche.activities.projects.ProjectPartActivity;
 import com.example.masche_um_masche.objects.CrochetHook;
 import com.example.masche_um_masche.objects.Material;
@@ -39,6 +42,14 @@ public class MaterialsActivity extends BaseActivity {
         materialListContainer = findViewById(R.id.material_list_container);
 
         displayMaterials(materialListContainer, allMaterials);
+
+        ImageView addPatternButton = findViewById(R.id.add_material);
+        addPatternButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MaterialsActivity.this, NewMaterialActivity.class);
+                startActivity(intent);            }
+        });
     }
 
     private void displayMaterials(LinearLayout container, List<Material> materialsToDisplay) {
