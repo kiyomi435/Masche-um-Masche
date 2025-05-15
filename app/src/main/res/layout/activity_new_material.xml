@@ -76,6 +76,48 @@
         android:visibility="gone"
         android:padding="8dp">
         <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="text" />
+        <EditText
+            android:id="@+id/edit_farbe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Farbe"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_Größe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Größe"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_länge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Länge"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_menge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Menge (in g)"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_zusammensetzung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Zusammensetzung"
+            android:inputType="text"
+            />
+
+        <EditText
             android:id="@+id/notes_wool"
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -99,6 +141,34 @@
         android:visibility="gone"
         android:padding="8dp">
         <EditText
+            android:id="@+id/edit_nadeltyp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nadeltyp"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_nadelgröße"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nadelgröße"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_nadellänge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nadellänge"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_lagerort_stricken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lagerort (optional)"
+            android:inputType="text"
+            />
+        <EditText
             android:id="@+id/notes_knitting_needle"
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -121,6 +191,26 @@
         android:orientation="vertical"
         android:visibility="gone"
         android:padding="8dp">
+        <EditText
+            android:id="@+id/edit_grifftyp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Grifftyp"
+            android:inputType="text" />
+        <EditText
+            android:id="@+id/edit_hakengröße"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hakengröße"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_lagerort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lagerort (optional)"
+            android:inputType="text"
+            />
         <EditText
             android:id="@+id/notes_crochet_hook"
             android:layout_width="match_parent"
