@@ -39,21 +39,127 @@
             android:layout_gravity="end" />
     </LinearLayout>
 
-
-    <EditText
-        android:id="@+id/notes_input"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:gravity="top|start"
-        android:hint="Notizen (optional))"
-        android:inputType="textMultiLine"
-        android:background="@android:drawable/edit_text"
-        android:padding="10dp"
-        android:layout_margin="15dp"
-        android:textSize="16sp"
-        android:maxLines="10"
-        android:scrollbars="vertical"
-        android:overScrollMode="always" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+        <TextView
+            android:id="@+id/text_choose_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:text="Wähle Kategorie" />
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:scrollbars="none">
+            <LinearLayout
+                android:id="@+id/category_buttons"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/form_wool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:padding="8dp">
+        <EditText
+            android:id="@+id/notes_wool"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="top|start"
+            android:hint="Notizen Wolle (optional))"
+            android:inputType="textMultiLine"
+            android:background="@android:drawable/edit_text"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:textSize="16sp"
+            android:maxLines="10"
+            android:scrollbars="vertical"
+            android:overScrollMode="always" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/form_knitting_needle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:padding="8dp">
+        <EditText
+            android:id="@+id/notes_knitting_needle"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="top|start"
+            android:hint="Notizen Stricknadel (optional))"
+            android:inputType="textMultiLine"
+            android:background="@android:drawable/edit_text"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:textSize="16sp"
+            android:maxLines="10"
+            android:scrollbars="vertical"
+            android:overScrollMode="always" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/form_crochet_hook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:padding="8dp">
+        <EditText
+            android:id="@+id/notes_crochet_hook"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="top|start"
+            android:hint="Notizen Häkelnadel (optional))"
+            android:inputType="textMultiLine"
+            android:background="@android:drawable/edit_text"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:textSize="16sp"
+            android:maxLines="10"
+            android:scrollbars="vertical"
+            android:overScrollMode="always" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/form_other"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:padding="8dp">
+        <EditText
+            android:id="@+id/notes_other"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="top|start"
+            android:hint="Notizen Sonstiges (optional))"
+            android:inputType="textMultiLine"
+            android:background="@android:drawable/edit_text"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:textSize="16sp"
+            android:maxLines="10"
+            android:scrollbars="vertical"
+            android:overScrollMode="always" />
+    </LinearLayout>
+
 
 
 
