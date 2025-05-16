@@ -1,4 +1,4 @@
-package com.example.masche_um_masche.objects;
+package com.example.masche_um_masche.data.entity;
 
 public abstract class Material {
     private String name;

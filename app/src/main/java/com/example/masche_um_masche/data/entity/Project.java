@@ -1,16 +1,22 @@
-package com.example.masche_um_masche.objects;
+package com.example.masche_um_masche.data.entity;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+import java.util.ArrayList;
 import java.util.List;
-
+@Entity
 public class Project {
+    @PrimaryKey(autoGenerate = true)
+    public int id;
     private String name;
-    private List<ProjectPart> parts;
-    private int currentRows;
+    @Ignore
+    private List<ProjectPart> parts = new ArrayList<>();    private int currentRows;
     private int allRows;
 
-    public Project(String name, List<ProjectPart> parts, int allRows) {
+    public Project(String name, int allRows) {
         this.name = name;
-        this.parts = parts;
         this.allRows = allRows;
         this.currentRows = 0;
     }

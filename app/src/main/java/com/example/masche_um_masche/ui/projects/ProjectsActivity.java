@@ -1,4 +1,4 @@
-package com.example.masche_um_masche.activities.projects;
+package com.example.masche_um_masche.ui.projects;
 
 import android.content.Intent;
 import java.util.List;
@@ -12,20 +12,21 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.masche_um_masche.activities.BaseActivity;
+import com.example.masche_um_masche.data.AppDatabase;
+import com.example.masche_um_masche.data.entity.ProjectPart;
+import com.example.masche_um_masche.ui.BaseActivity;
 import com.example.masche_um_masche.R;
-import com.example.masche_um_masche.objects.*;
+import com.example.masche_um_masche.data.entity.Project;
 
 import androidx.core.content.ContextCompat;
-
-import com.example.masche_um_masche.objects.Project;
-
 import java.util.ArrayList;
+import androidx.room.Room;
 
 public class ProjectsActivity extends BaseActivity {
+    private AppDatabase db;
     LinearLayout projectListContainer;
     List<ProjectPart> exampleParts = new ArrayList<>();
-    private final List<Project> allProjects = new ArrayList<>();
+    private List<Project> allProjects = new ArrayList<>();
     Button btnProgress;
     Button btnFinished;
 
@@ -37,15 +38,16 @@ public class ProjectsActivity extends BaseActivity {
         exampleParts.add(new ProjectPart("Teil2", 30, 20));
 
         //create Projects
-        allProjects.add(new Project("Sommerpulli", exampleParts, 60));
-        allProjects.add(new Project("Mütze", exampleParts, 30));
-        allProjects.add(new Project("Decke", exampleParts, 80));
-        allProjects.add(new Project("Tasche", exampleParts, 10));
-        allProjects.add(new Project("Teddy", exampleParts, 100));
+        allProjects.add(new Project("Sommerpulli", 60));
+        allProjects.add(new Project("Mütze", 30));
+        allProjects.add(new Project("Decke", 80));
+        allProjects.add(new Project("Tasche", 10));
+        allProjects.add(new Project("Teddy", 100));
 
         setContentView(R.layout.activity_projects);
         createBottomNavigation(R.id.nav_projects);
 
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "projects-db").build();
         projectListContainer = findViewById(R.id.project_list_container);
 
         ImageView addPatternButton = findViewById(R.id.add_project);
@@ -80,6 +82,8 @@ public class ProjectsActivity extends BaseActivity {
                 selectFinishedProjects(true);
             }
         });
+
+        loadProjectsFromDatabase();
     }
 
     private void addProjectView(LinearLayout container, Project project) {
@@ -123,5 +127,21 @@ public class ProjectsActivity extends BaseActivity {
                 addProjectView(projectListContainer, project);
             }
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadProjectsFromDatabase(); // neu laden nach Rückkehr von NewProjectActivity
+    }
+
+    private void loadProjectsFromDatabase() {
+        new Thread(() -> {
+            allProjects = db.projectDao().getAll();
+
+            runOnUiThread(() -> {
+                selectFinishedProjects(false); // z. B. Standardanzeige
+            });
+        }).start();
     }
 }

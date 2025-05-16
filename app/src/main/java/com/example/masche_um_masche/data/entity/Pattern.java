@@ -1,4 +1,4 @@
-package com.example.masche_um_masche.objects;
+package com.example.masche_um_masche.data.entity;
 public class Pattern {
     private String name;
     private String category; // z. B. Kleidung, Haushalt, Accessoires ...

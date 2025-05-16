@@ -1,4 +1,4 @@
-package com.example.masche_um_masche.objects;
+package com.example.masche_um_masche.data.entity;
 
 public class Wool extends Material {
     private String color;

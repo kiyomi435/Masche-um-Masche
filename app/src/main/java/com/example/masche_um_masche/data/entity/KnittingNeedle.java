@@ -1,4 +1,4 @@
-package com.example.masche_um_masche.objects;
+package com.example.masche_um_masche.data.entity;
 
 public class KnittingNeedle extends Material {
     private String needleType;

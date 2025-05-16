@@ -1,4 +1,4 @@
-package com.example.masche_um_masche.activities.projects;
+package com.example.masche_um_masche.ui.projectparts;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,12 +7,12 @@ import android.widget.ImageView;
 
 import com.example.masche_um_masche.R;
 
-public class NewProjectActivity extends Activity {
+public class NewProjectPartActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_project);
+        setContentView(R.layout.activity_new_project_part);
 
         ImageView backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(new View.OnClickListener() {

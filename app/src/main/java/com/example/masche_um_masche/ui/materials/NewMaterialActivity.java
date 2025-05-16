@@ -1,4 +1,4 @@
-package com.example.masche_um_masche.activities.materials;
+package com.example.masche_um_masche.ui.materials;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -7,12 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.masche_um_masche.R;
 

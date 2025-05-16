@@ -13,34 +13,34 @@
         android:theme="@style/Theme.MascheumMasche"
         tools:targetApi="31">
         <activity
-            android:name=".activities.materials.NewMaterialActivity"
+            android:name=".ui.materials.NewMaterialActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.patterns.NewPatternActivity"
+            android:name=".ui.patterns.NewPatternActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.projects.NewProjectPartActivity"
+            android:name=".ui.projectparts.NewProjectPartActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.projects.NewProjectActivity"
+            android:name=".ui.projects.NewProjectActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.projects.ProjectPartActivity"
+            android:name=".ui.projectparts.ProjectPartActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.projects.ProjectActivity"
+            android:name=".ui.projects.ProjectActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.profile.ProfileActivity"
+            android:name=".ui.profile.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.patterns.PatternsActivity"
+            android:name=".ui.patterns.PatternsActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.materials.MaterialsActivity"
+            android:name=".ui.materials.MaterialsActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.projects.ProjectsActivity"
+            android:name=".ui.projects.ProjectsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -31,7 +31,7 @@
             android:text="Neues Projekt" />
 
         <Button
-            android:id="@+id/button_save_projekt"
+            android:id="@+id/button_save_project"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="save"
@@ -44,7 +44,7 @@
     android:orientation="vertical"
     android:padding="15dp">
     <EditText
-        android:id="@+id/edit_projektname"
+        android:id="@+id/edit_project_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Projektname"
@@ -52,10 +52,10 @@
         />
 
     <EditText
-        android:id="@+id/edit_maschenanzahl"
+        android:id="@+id/edit_total_rows"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Maschenanzahl"
+        android:hint="max. Reihenanzahl"
         android:inputType="number" />
 
     <Button

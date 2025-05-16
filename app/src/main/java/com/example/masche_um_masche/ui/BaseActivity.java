@@ -1,13 +1,13 @@
-package com.example.masche_um_masche.activities;
+package com.example.masche_um_masche.ui;
 
 import android.app.Activity;
 import android.content.Intent;
 
-import com.example.masche_um_masche.activities.profile.ProfileActivity;
+import com.example.masche_um_masche.ui.profile.ProfileActivity;
 import com.example.masche_um_masche.R;
-import com.example.masche_um_masche.activities.materials.MaterialsActivity;
-import com.example.masche_um_masche.activities.patterns.PatternsActivity;
-import com.example.masche_um_masche.activities.projects.ProjectsActivity;
+import com.example.masche_um_masche.ui.materials.MaterialsActivity;
+import com.example.masche_um_masche.ui.patterns.PatternsActivity;
+import com.example.masche_um_masche.ui.projects.ProjectsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public abstract class BaseActivity extends Activity {

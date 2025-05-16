@@ -1,4 +1,4 @@
-package com.example.masche_um_masche.activities.patterns;
+package com.example.masche_um_masche.ui.patterns;
 
 import android.app.Activity;
 import android.graphics.Color;

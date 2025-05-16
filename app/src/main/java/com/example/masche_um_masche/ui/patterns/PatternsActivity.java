@@ -1,4 +1,4 @@
-package com.example.masche_um_masche.activities.patterns;
+package com.example.masche_um_masche.ui.patterns;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.masche_um_masche.activities.BaseActivity;
+import com.example.masche_um_masche.ui.BaseActivity;
 import com.example.masche_um_masche.R;
-import com.example.masche_um_masche.activities.projects.ProjectPartActivity;
-import com.example.masche_um_masche.objects.Pattern;
+import com.example.masche_um_masche.ui.projectparts.ProjectPartActivity;
+import com.example.masche_um_masche.data.entity.Pattern;
 
 import java.util.ArrayList;
 import java.util.List;

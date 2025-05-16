@@ -1,4 +1,4 @@
-package com.example.masche_um_masche.activities.projects;
+package com.example.masche_um_masche.ui.projectparts;
 
 import android.os.Bundle;
 import android.view.View;

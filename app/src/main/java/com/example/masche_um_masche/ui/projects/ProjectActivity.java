@@ -1,4 +1,4 @@
-package com.example.masche_um_masche.activities.projects;
+package com.example.masche_um_masche.ui.projects;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.masche_um_masche.R;
-import com.example.masche_um_masche.objects.ProjectPart;
+import com.example.masche_um_masche.data.entity.ProjectPart;
+import com.example.masche_um_masche.ui.projectparts.NewProjectPartActivity;
+import com.example.masche_um_masche.ui.projectparts.ProjectPartActivity;
 
 import java.util.ArrayList;
 import java.util.List;

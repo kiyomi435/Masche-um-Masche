@@ -1,4 +1,4 @@
-package com.example.masche_um_masche.objects;
+package com.example.masche_um_masche.data.entity;
 
 public class CrochetHook extends Material {
     private String size;
