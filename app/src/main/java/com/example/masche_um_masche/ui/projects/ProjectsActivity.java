@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -87,23 +88,34 @@ public class ProjectsActivity extends BaseActivity {
     }
 
     private void addProjectView(LinearLayout container, Project project) {
-            View projectView = LayoutInflater.from(this).inflate(R.layout.project_item, container, false);
+        View projectView = LayoutInflater.from(this).inflate(R.layout.project_item, container, false);
 
-            TextView nameText = projectView.findViewById(R.id.text_project_name);
-            TextView teileText = projectView.findViewById(R.id.text_material_details);
-            ProgressBar progressBar = projectView.findViewById(R.id.progress_project);
+        TextView nameText = projectView.findViewById(R.id.text_project_name);
+        TextView teileText = projectView.findViewById(R.id.text_material_details);
+        ProgressBar progressBar = projectView.findViewById(R.id.progress_project);
+        ImageButton deleteButton = projectView.findViewById(R.id.button_delete);
 
-            nameText.setText(project.getName());
-            teileText.setText(project.getParts().size() + " Teile");
-            progressBar.setProgress(project.getProgress());
+        nameText.setText(project.getName());
+        teileText.setText(project.getParts().size() + " Teile");
+        progressBar.setProgress(project.getProgress());
 
-            projectView.setOnClickListener(v -> {
-                Intent intent = new Intent(ProjectsActivity.this, ProjectActivity.class);
-                startActivity(intent);
-            });
+        projectView.setOnClickListener(v -> {
+            Intent intent = new Intent(ProjectsActivity.this, ProjectActivity.class);
+            startActivity(intent);
+        });
 
+        deleteButton.setOnClickListener(v -> {
+            new Thread(() -> {
+                AppDatabase db = AppDatabase.getInstance(this);
+                db.projectDao().delete(project);
+                runOnUiThread(() -> {
+                    allProjects.remove(project);
+                    selectFinishedProjects(false); // oder true, je nach Zustand
+                });
+            }).start();
+        });
 
-            container.addView(projectView);
+        container.addView(projectView);
     }
 
     private void selectButton(Button selected, Button deselected) {
