@@ -35,13 +35,6 @@ public class ProjectsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //create Projects
-        allProjects.add(new Project("Sommerpulli", 60));
-        allProjects.add(new Project("Mütze", 30));
-        allProjects.add(new Project("Decke", 80));
-        allProjects.add(new Project("Tasche", 10));
-        allProjects.add(new Project("Teddy", 100));
-
         setContentView(R.layout.activity_projects);
         createBottomNavigation(R.id.nav_projects);
 
