@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -32,17 +33,6 @@ public class ProjectActivity extends Activity {
         int projectId = getIntent().getIntExtra("projectId", -1);
         projectPartsListContainer = findViewById(R.id.project_parts_list_container);
 
-//        new Thread(() -> {
-//            AppDatabase db = AppDatabase.getInstance(getApplicationContext());
-//            List<ProjectPart> parts = db.projectPartDao().getAllByProjectId(projectId);
-//            runOnUiThread(() -> {
-//                for (ProjectPart part : parts) {
-//                    addProjectPartView(projectPartsListContainer, part);
-//                }
-//            });
-//        }).start();
-
-
         findViewById(R.id.back_button).setOnClickListener(v -> finish());
 
         findViewById(R.id.add_project_part).setOnClickListener(v -> {
@@ -60,6 +50,7 @@ public class ProjectActivity extends Activity {
         TextView nameText = projectView.findViewById(R.id.text_project_name);
         TextView teileText = projectView.findViewById(R.id.text_material_details);
         ProgressBar progressBar = projectView.findViewById(R.id.progress_project);
+        ImageButton deleteButton = projectView.findViewById(R.id.button_delete);
 
         nameText.setText(part.getName());
         String row_info = part.getCurrentRows() + "/" + part.getMaxRows() + " Reihen";
@@ -70,6 +61,17 @@ public class ProjectActivity extends Activity {
         projectView.setOnClickListener(v -> {
             Intent intent = new Intent(ProjectActivity.this, ProjectPartActivity.class);
             startActivity(intent);
+        });
+
+        deleteButton.setOnClickListener(v -> {
+            new Thread(() -> {
+                AppDatabase db = AppDatabase.getInstance(this);
+                db.projectPartDao().delete(part);
+                runOnUiThread(() -> {
+                    container.removeView(projectView);
+                    //selectFinishedProjects(false); // oder true, je nach Zustand
+                });
+            }).start();
         });
 
         container.addView(projectView);

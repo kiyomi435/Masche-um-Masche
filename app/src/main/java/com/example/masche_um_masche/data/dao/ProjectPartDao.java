@@ -1,6 +1,7 @@
 package com.example.masche_um_masche.data.dao;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -12,6 +13,9 @@ import java.util.List;
 public interface ProjectPartDao {
     @Insert
     void insert(ProjectPart part);
+
+    @Delete
+    void delete(ProjectPart part);
 
     @Query("SELECT * FROM ProjectPart WHERE projectId = :projectId")
     List<ProjectPart> getAllByProjectId(int projectId);
