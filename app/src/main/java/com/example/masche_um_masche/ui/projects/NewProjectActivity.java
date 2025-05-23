@@ -23,7 +23,7 @@ public class NewProjectActivity extends Activity {
 
         nameInput = findViewById(R.id.edit_project_name);
         rowsInput = findViewById(R.id.edit_total_rows);
-        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "projects-db").build();
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "masche_db").build();
 
         Button saveButton = findViewById(R.id.button_save_project);
         saveButton.setOnClickListener(v -> {

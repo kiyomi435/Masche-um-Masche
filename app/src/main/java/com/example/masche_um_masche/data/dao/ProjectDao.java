@@ -13,7 +13,7 @@ import java.util.List;
 @Dao
 public interface ProjectDao {
     @Insert
-    long insert(Project project);
+    void insert(Project project);
 
     @Query("SELECT * FROM Project")
     List<Project> getAll();

@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
         <TextView
-            android:id="@+id/text_neuer_projekt_teil_title"
+            android:id="@+id/text_project_part_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -31,7 +31,7 @@
             android:text="Neuer Teil" />
 
         <Button
-            android:id="@+id/button_save_projekt_part"
+            android:id="@+id/button_save_project_part"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="save"
@@ -44,7 +44,7 @@
         android:orientation="vertical"
         android:padding="15dp">
         <EditText
-            android:id="@+id/edit_projektpartname"
+            android:id="@+id/edit_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name des Teils"
@@ -52,7 +52,7 @@
             />
 
         <EditText
-            android:id="@+id/edit_maschenanzahl"
+            android:id="@+id/edit_max_rows"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Maschenanzahl"

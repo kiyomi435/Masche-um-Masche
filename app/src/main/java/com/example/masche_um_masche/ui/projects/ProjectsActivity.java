@@ -35,9 +35,6 @@ public class ProjectsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        exampleParts.add(new ProjectPart("Teil1", 20, 80));
-        exampleParts.add(new ProjectPart("Teil2", 30, 20));
-
         //create Projects
         allProjects.add(new Project("Sommerpulli", 60));
         allProjects.add(new Project("Mütze", 30));
@@ -48,7 +45,7 @@ public class ProjectsActivity extends BaseActivity {
         setContentView(R.layout.activity_projects);
         createBottomNavigation(R.id.nav_projects);
 
-        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "projects-db").build();
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "masche_db").build();
         projectListContainer = findViewById(R.id.project_list_container);
 
         ImageView addPatternButton = findViewById(R.id.add_project);
@@ -101,6 +98,7 @@ public class ProjectsActivity extends BaseActivity {
 
         projectView.setOnClickListener(v -> {
             Intent intent = new Intent(ProjectsActivity.this, ProjectActivity.class);
+            intent.putExtra("projectId", project.id);  // <<< DAS ist wichtig
             startActivity(intent);
         });
 
