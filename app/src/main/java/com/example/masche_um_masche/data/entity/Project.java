@@ -21,6 +21,14 @@ public class Project {
         this.currentRows = 0;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -35,10 +43,16 @@ public class Project {
 
     public void setParts(List<ProjectPart> parts) {
         this.parts = parts;
+        this.allRows = parts.stream().mapToInt(ProjectPart::getAllRows).sum();
+        this.currentRows = parts.stream().mapToInt(ProjectPart::getCurrentRows).sum();
     }
 
     public int getCurrentRows() {
-        return currentRows;
+        int total = 0;
+        for (ProjectPart part : parts) {
+            total += part.getCurrentRows();
+        }
+        return total;
     }
 
     public void setCurrentRows(int currentRows) {
@@ -46,7 +60,11 @@ public class Project {
     }
 
     public int getAllRows() {
-        return allRows;
+        int total = 0;
+        for (ProjectPart part : parts) {
+            total += part.getAllRows();
+        }
+        return total;
     }
 
     public void setAllRows(int allRows) {

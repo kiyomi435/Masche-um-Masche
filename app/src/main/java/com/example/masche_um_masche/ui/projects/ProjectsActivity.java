@@ -77,6 +77,12 @@ public class ProjectsActivity extends BaseActivity {
         loadProjectsFromDatabase();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadProjectsFromDatabase(); // neu laden nach Rückkehr von NewProjectActivity
+    }
+
     private void addProjectView(LinearLayout container, Project project) {
         View projectView = LayoutInflater.from(this).inflate(R.layout.project_item, container, false);
 
@@ -132,17 +138,17 @@ public class ProjectsActivity extends BaseActivity {
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        loadProjectsFromDatabase(); // neu laden nach Rückkehr von NewProjectActivity
-    }
-
     private void loadProjectsFromDatabase() {
         new Thread(() -> {
             allProjects = db.projectDao().getAll();
+            // Für jedes Projekt: zugehörige Teile laden und zuordnen
+            for (Project project : allProjects) {
+                List<ProjectPart> parts = db.projectPartDao().getAllByProjectId(project.getId());
+                project.setParts(parts); // das berechnet allRows & currentRows automatisch
+            }
 
             runOnUiThread(() -> {
+
                 selectFinishedProjects(false); // z. B. Standardanzeige
             });
         }).start();

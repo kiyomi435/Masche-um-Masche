@@ -36,7 +36,7 @@ public class ProjectPartActivity extends AppCompatActivity {
                 ((TextView) findViewById(R.id.current_row)).setText(String.valueOf(part.getCurrentRows()));
                 ((TextView) findViewById(R.id.text_part_name)).setText(part.getName());
                 ((ProgressBar) findViewById(R.id.progress_project)).setProgress(
-                        (int) ((part.getCurrentRows() / (float) part.getMaxRows()) * 100));
+                        (int) ((part.getCurrentRows() / (float) part.getAllRows()) * 100));
 
                 setupButtons(part); // hier gleich die Logik fürs Hochzählen einbauen
             });
@@ -113,7 +113,7 @@ public class ProjectPartActivity extends AppCompatActivity {
 
     private void updateUIAndSave(ProjectPart part, TextView currentRowText, ProgressBar progressBar) {
         int current = part.getCurrentRows();
-        int max = part.getMaxRows();
+        int max = part.getAllRows();
 
         currentRowText.setText(String.valueOf(current));
         progressBar.setProgress((int) ((current / (float) max) * 100));

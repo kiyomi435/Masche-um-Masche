@@ -53,9 +53,9 @@ public class ProjectActivity extends Activity {
         ImageButton deleteButton = projectView.findViewById(R.id.button_delete);
 
         nameText.setText(part.getName());
-        String row_info = part.getCurrentRows() + "/" + part.getMaxRows() + " Reihen";
+        String row_info = part.getCurrentRows() + "/" + part.getAllRows() + " Reihen";
         teileText.setText(row_info);
-        int progress = (int) ((double) part.getCurrentRows() / part.getMaxRows() * 100);
+        int progress = (int) ((double) part.getCurrentRows() / part.getAllRows() * 100);
         progressBar.setProgress(progress);
 
         projectView.setOnClickListener(v -> {

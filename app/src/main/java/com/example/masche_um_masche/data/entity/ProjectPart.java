@@ -17,13 +17,13 @@ public class ProjectPart {
     public int id;
 
     private String name;
-    public int maxRows;
+    public int allRows;
     public int currentRows;
     public int projectId; // Fremdschlüssel
 
-    public ProjectPart(String name, int maxRows, int currentRows, int projectId) {
+    public ProjectPart(String name, int allRows, int currentRows, int projectId) {
         this.name = name;
-        this.maxRows = maxRows;
+        this.allRows = allRows;
         this.currentRows = currentRows;
         this.projectId = projectId;
     }
@@ -36,12 +36,12 @@ public class ProjectPart {
         this.name = name;
     }
 
-    public int getMaxRows() {
-        return maxRows;
+    public int getAllRows() {
+        return allRows;
     }
 
-    public void setMaxRows(int maxRows) {
-        this.maxRows = maxRows;
+    public void setAllRows(int allRows) {
+        this.allRows = allRows;
     }
 
     public int getCurrentRows() {

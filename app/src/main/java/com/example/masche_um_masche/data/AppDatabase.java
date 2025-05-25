@@ -11,7 +11,7 @@ import com.example.masche_um_masche.data.dao.ProjectPartDao;
 import com.example.masche_um_masche.data.entity.Project;
 import com.example.masche_um_masche.data.entity.ProjectPart;
 
-@Database(entities = {Project.class, ProjectPart.class}, version = 2)
+@Database(entities = {Project.class, ProjectPart.class}, version = 3)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract ProjectDao projectDao();
     public abstract ProjectPartDao projectPartDao();
