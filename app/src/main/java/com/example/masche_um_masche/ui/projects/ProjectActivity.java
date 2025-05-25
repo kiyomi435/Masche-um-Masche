@@ -87,13 +87,11 @@ public class ProjectActivity extends Activity {
     private void loadParts() {
         projectPartsListContainer.removeAllViews();  // wichtig: erst leeren
         int projectId = getIntent().getIntExtra("projectId", -1);
-        Log.d("ProjectActivity", "Lade ProjectParts für projectId: " + projectId);
 
 
         new Thread(() -> {
             AppDatabase db = AppDatabase.getInstance(getApplicationContext());
             List<ProjectPart> parts = db.projectPartDao().getAllByProjectId(projectId);
-            Log.d("ProjectActivity", "Gefundene Teile: " + parts.size());
 
             runOnUiThread(() -> {
                 for (ProjectPart part : parts) {

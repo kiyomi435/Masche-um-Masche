@@ -22,16 +22,14 @@ public class NewProjectActivity extends Activity {
         setContentView(R.layout.activity_new_project);
 
         nameInput = findViewById(R.id.edit_project_name);
-        rowsInput = findViewById(R.id.edit_total_rows);
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "masche_db").build();
 
         Button saveButton = findViewById(R.id.button_save_project);
         saveButton.setOnClickListener(v -> {
             String name = nameInput.getText().toString();
-            int allRows = Integer.parseInt(rowsInput.getText().toString());
 
             new Thread(() -> {
-                db.projectDao().insert(new Project(name, allRows));
+                db.projectDao().insert(new Project(name));
                 runOnUiThread(this::finish); // Zurück zur vorherigen Activity
             }).start();
         });

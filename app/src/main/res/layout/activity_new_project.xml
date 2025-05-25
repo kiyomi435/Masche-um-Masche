@@ -51,13 +51,6 @@
         android:inputType="text"
         />
 
-    <EditText
-        android:id="@+id/edit_total_rows"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="max. Reihenanzahl"
-        android:inputType="number" />
-
     <Button
         android:id="@+id/button_choose_file"
         android:layout_width="wrap_content"

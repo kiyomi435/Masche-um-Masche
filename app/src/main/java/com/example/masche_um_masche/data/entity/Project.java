@@ -15,9 +15,9 @@ public class Project {
     private List<ProjectPart> parts = new ArrayList<>();    private int currentRows;
     private int allRows;
 
-    public Project(String name, int allRows) {
+    public Project(String name) {
         this.name = name;
-        this.allRows = allRows;
+        this.allRows = 0;
         this.currentRows = 0;
     }
 
@@ -43,8 +43,13 @@ public class Project {
 
     public void setParts(List<ProjectPart> parts) {
         this.parts = parts;
-        this.allRows = parts.stream().mapToInt(ProjectPart::getAllRows).sum();
-        this.currentRows = parts.stream().mapToInt(ProjectPart::getCurrentRows).sum();
+        if (parts.isEmpty()) {
+            this.allRows = 1;
+            this.currentRows = 0;
+        } else if (!parts.isEmpty()) {
+            this.allRows = parts.stream().mapToInt(ProjectPart::getAllRows).sum();
+            this.currentRows = parts.stream().mapToInt(ProjectPart::getCurrentRows).sum();
+        }
     }
 
     public int getCurrentRows() {
