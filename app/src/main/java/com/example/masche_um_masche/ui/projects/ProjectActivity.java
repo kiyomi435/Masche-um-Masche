@@ -60,6 +60,7 @@ public class ProjectActivity extends Activity {
 
         projectView.setOnClickListener(v -> {
             Intent intent = new Intent(ProjectActivity.this, ProjectPartActivity.class);
+            intent.putExtra("projectPartId", part.id);  // <<< DAS ist wichtig
             startActivity(intent);
         });
 
