@@ -249,8 +249,4 @@
             android:scrollbars="vertical"
             android:overScrollMode="always" />
     </LinearLayout>
-
-
-
-
 </LinearLayout>

@@ -17,6 +17,7 @@ import com.example.masche_um_masche.data.entity.ProjectPart;
 public class ProjectPartActivity extends AppCompatActivity {
     private int currentRows = 0;
     private TextView currentRowText;
+    private ProjectPart part;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class ProjectPartActivity extends AppCompatActivity {
         setButtonListeners();
 
         new Thread(() -> {
-            ProjectPart part = db.projectPartDao().getById(partId);
+            part = db.projectPartDao().getById(partId);
             runOnUiThread(() -> {
                 // Fülle UI mit Daten
                 ((TextView) findViewById(R.id.current_row)).setText(String.valueOf(part.getCurrentRows()));
@@ -59,8 +60,10 @@ public class ProjectPartActivity extends AppCompatActivity {
         updateCurrentRowDisplay();
 
         btnAdd.setOnClickListener(v -> {
-            currentRows++;
-            updateCurrentRowDisplay();
+            if (currentRows < part.getAllRows()) {
+                currentRows++;
+                updateCurrentRowDisplay();
+            }
         });
 
         btnSubtract.setOnClickListener(v -> {
