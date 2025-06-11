@@ -32,7 +32,7 @@
             android:text="Neues Material" />
 
         <Button
-            android:id="@+id/button_save_pattern"
+            android:id="@+id/button_save_material"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="save"
@@ -116,6 +116,13 @@
             android:hint="Zusammensetzung"
             android:inputType="text"
             />
+        <EditText
+            android:id="@+id/edit_lagerort_wolle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lagerort (optional)"
+            android:inputType="text"
+            />
 
         <EditText
             android:id="@+id/notes_wool"
@@ -162,6 +169,13 @@
             android:inputType="text"
             />
         <EditText
+            android:id="@+id/edit_nadelmaterial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nadelmaterial"
+            android:inputType="text"
+            />
+        <EditText
             android:id="@+id/edit_lagerort_stricken"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -205,6 +219,13 @@
             android:inputType="text"
             />
         <EditText
+            android:id="@+id/edit_hakenmaterial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hakenmaterial"
+            android:inputType="text"
+            />
+        <EditText
             android:id="@+id/edit_lagerort"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -234,6 +255,55 @@
         android:orientation="vertical"
         android:visibility="gone"
         android:padding="8dp">
+        <EditText
+            android:id="@+id/edit_gegenstand_art"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Gegegenstand Art"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_beschreibung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Beschreibung"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_utensil_material"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Material"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_utensil_menge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Menge"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_utensil_farbe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Farbe"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_utensil_gebrauch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Gebrauch"
+            android:inputType="text"
+            />
+        <EditText
+            android:id="@+id/edit_utensil_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lagerort"
+            android:inputType="text"
+            />
         <EditText
             android:id="@+id/notes_other"
             android:layout_width="match_parent"

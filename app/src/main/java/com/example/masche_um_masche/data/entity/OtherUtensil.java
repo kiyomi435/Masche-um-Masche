@@ -1,16 +1,26 @@
 package com.example.masche_um_masche.data.entity;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class OtherUtensil extends Material {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String itemType;
     private String description;
     private String material;
-    private int quantity;
+    private String quantity;
 
     // Optional
     private String color;
     private String usage;
+    private String notes;
 
-    public OtherUtensil(String itemType, String description, String material, int quantity,
+    public OtherUtensil() {} // Für Room
+    @Ignore
+    public OtherUtensil(String itemType, String description, String material, String quantity,
                        String storageLocation, String notes) {
 
         super(itemType + " – " + description, "Other", storageLocation, notes);
@@ -18,6 +28,7 @@ public class OtherUtensil extends Material {
         this.description = description;
         this.material = material;
         this.quantity = quantity;
+        this.notes = notes;
     }
 
     @Override
@@ -27,7 +38,68 @@ public class OtherUtensil extends Material {
                 "Quantity: " + quantity;
     }
 
-    public void setColor(String color) { this.color = color; }
-    public void setUsage(String usage) { this.usage = usage; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getItemType() {
+        return itemType;
+    }
+
+    public void setItemType(String itemType) {
+        this.itemType = itemType;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getUsage() {
+        return usage;
+    }
+
+    public void setUsage(String usage) {
+        this.usage = usage;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 }
 

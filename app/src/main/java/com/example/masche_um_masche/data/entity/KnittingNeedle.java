@@ -1,6 +1,12 @@
 package com.example.masche_um_masche.data.entity;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+@Entity
 public class KnittingNeedle extends Material {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String needleType;
     private String size;
     private String length;
@@ -10,6 +16,8 @@ public class KnittingNeedle extends Material {
     private String condition;
     private String brand;
 
+    public KnittingNeedle() {} // Für Room
+    @Ignore
     public KnittingNeedle(String needleType, String size, String length, String material,
                           String storageLocation, String notes) {
 
@@ -28,6 +36,59 @@ public class KnittingNeedle extends Material {
                 "Material: " + material;
     }
 
-    public void setCondition(String condition) { this.condition = condition; }
-    public void setBrand(String brand) { this.brand = brand; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNeedleType() {
+        return needleType;
+    }
+
+    public void setNeedleType(String needleType) {
+        this.needleType = needleType;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 }

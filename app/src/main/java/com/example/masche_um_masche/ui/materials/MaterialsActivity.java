@@ -119,7 +119,7 @@ public class MaterialsActivity extends BaseActivity {
                 "Bordeaux",
                 "Lana Grossa",
                 "120m / 50g",
-                3,
+                "3",
                 "100% Merino Wool",
                 "Box A1",
                 ""
@@ -149,7 +149,7 @@ public class MaterialsActivity extends BaseActivity {
                 "Stitch Marker",
                 "Heart-shaped",
                 "Plastic",
-                10,
+                "10",
                 "Jar 1",
                 ""
         );
