@@ -18,11 +18,14 @@ import com.example.masche_um_masche.data.entity.Material;
 import com.example.masche_um_masche.data.entity.OtherUtensil;
 import com.example.masche_um_masche.data.entity.Wool;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class NewMaterialActivity extends Activity {
     private String selectedMaterialType = null;
+    private final List<Button> materialTypeButtons = new ArrayList<>();
 
 
     @Override
@@ -151,6 +154,7 @@ public class NewMaterialActivity extends Activity {
             btn.setLayoutParams(params);
             btn.setBackgroundResource(R.drawable.filter_button_background); // siehe unten
             btn.setTextColor(Color.BLACK);
+            materialTypeButtons.add(btn);
 
             btn.setOnClickListener(v -> {
                 // Alle Formulare ausblenden
@@ -161,8 +165,19 @@ public class NewMaterialActivity extends Activity {
                 LinearLayout selectedForm = formMap.get(category);
                 if (selectedForm != null) selectedForm.setVisibility(View.VISIBLE);
                 selectedMaterialType = category;
+
+                // Visuelles Feedback: Alle zurücksetzen
+                for (Button b : materialTypeButtons) {
+                    b.setBackgroundResource(R.drawable.filter_button_background); // normaler Hintergrund
+                    b.setTextColor(Color.BLACK);
+                }
+
+                // Aktiven Button hervorheben
+                btn.setBackgroundResource(R.drawable.filter_button_selected); // z.B. lila Hintergrund
+                btn.setTextColor(Color.WHITE);
             });
             categoryButtons.addView(btn);
+
         }
     }
 
