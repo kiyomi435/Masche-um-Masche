@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class NewMaterialActivity extends Activity {
     private String selectedMaterialType = null;
-    Button saveButton = findViewById(R.id.button_save_material);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,6 @@ public class NewMaterialActivity extends Activity {
                 finish(); // Beendet die aktuelle Activity und geht zur vorherigen zurück
             }
         });
-
         initiateSaveButton();
 
     }
@@ -64,6 +63,7 @@ public class NewMaterialActivity extends Activity {
     }
 
     private void initiateSaveButton() {
+        Button saveButton = findViewById(R.id.button_save_material);
         saveButton.setOnClickListener(v -> {
             if (selectedMaterialType == null) {
                 Toast.makeText(this, "Bitte wähle eine Kategorie.", Toast.LENGTH_SHORT).show();

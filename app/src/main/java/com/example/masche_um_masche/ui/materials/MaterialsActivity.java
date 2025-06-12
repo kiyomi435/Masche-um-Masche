@@ -33,16 +33,16 @@ public class MaterialsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_materials);
         createBottomNavigation(R.id.nav_materials);
-
         setupFilterButtons();
+
         initializeMaterials();
 
         materialListContainer = findViewById(R.id.material_list_container);
 
         displayMaterials(materialListContainer, allMaterials);
 
-        ImageView addPatternButton = findViewById(R.id.add_material);
-        addPatternButton.setOnClickListener(new View.OnClickListener() {
+        ImageView addMaterialButton = findViewById(R.id.add_material);
+        addMaterialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MaterialsActivity.this, NewMaterialActivity.class);
