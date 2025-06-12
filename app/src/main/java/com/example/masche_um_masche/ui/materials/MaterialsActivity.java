@@ -23,6 +23,8 @@ public class MaterialsActivity extends BaseActivity {
     LinearLayout materialListContainer;
     private List<Material> allMaterials;
     private String currentFilter = "All";
+    private List<Button> filterButtons = new ArrayList<>();
+
 
 
     @Override
@@ -81,6 +83,7 @@ public class MaterialsActivity extends BaseActivity {
     private void setupFilterButtons() {
         LinearLayout filterBar = findViewById(R.id.filter_bar);
         String[] filters = {"All", "Wool", "KnittingNeedle", "CrochetHook", "OtherUtensil"};
+        filterButtons.clear();
 
         for (String filter : filters) {
             Button btn = new Button(this);
@@ -96,11 +99,22 @@ public class MaterialsActivity extends BaseActivity {
             params.setMargins(16, 0, 16, 0);
             btn.setLayoutParams(params);
 
-            btn.setBackgroundResource(R.drawable.filter_button_background); // siehe unten
+            btn.setBackgroundResource(filter.equals("All")
+                    ? R.drawable.filter_button_selected
+                    : R.drawable.filter_button_background);
             btn.setTextColor(Color.BLACK);
 
             btn.setOnClickListener(v -> {
                 currentFilter = filter;
+
+                // Button-Stile aktualisieren
+                for (Button b : filterButtons) {
+                    if (b == btn) {
+                        b.setBackgroundResource(R.drawable.filter_button_selected);
+                    } else {
+                        b.setBackgroundResource(R.drawable.filter_button_background);
+                    }
+                }
 
                 List<Material> filteredList = new ArrayList<>();
                 for (Material m : allMaterials) {
@@ -112,6 +126,7 @@ public class MaterialsActivity extends BaseActivity {
                 displayMaterials(materialListContainer, filteredList);
             });
 
+            filterButtons.add(btn);
             filterBar.addView(btn);
         }
     }
