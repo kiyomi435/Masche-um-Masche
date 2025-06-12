@@ -10,14 +10,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.masche_um_masche.data.AppDatabase;
 import com.example.masche_um_masche.ui.BaseActivity;
 import com.example.masche_um_masche.R;
 import com.example.masche_um_masche.ui.projectparts.ProjectPartActivity;
-import com.example.masche_um_masche.data.entity.CrochetHook;
 import com.example.masche_um_masche.data.entity.Material;
-import com.example.masche_um_masche.data.entity.KnittingNeedle;
-import com.example.masche_um_masche.data.entity.OtherUtensil;
-import com.example.masche_um_masche.data.entity.Wool;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,14 +29,24 @@ public class MaterialsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_materials);
-        createBottomNavigation(R.id.nav_materials);
-        setupFilterButtons();
-
-        initializeMaterials();
-
         materialListContainer = findViewById(R.id.material_list_container);
+        createBottomNavigation(R.id.nav_materials);
 
-        displayMaterials(materialListContainer, allMaterials);
+        new Thread(() -> {
+            AppDatabase db = AppDatabase.getInstance(this);
+
+            List<Material> loadedMaterials = new ArrayList<>();
+            loadedMaterials.addAll(db.woolDao().getAll());
+            loadedMaterials.addAll(db.knittingNeedleDao().getAll());
+            loadedMaterials.addAll(db.crochetHookDao().getAll());
+            loadedMaterials.addAll(db.otherUtensilDao().getAll());
+
+            runOnUiThread(() -> {
+                allMaterials = loadedMaterials;
+                setupFilterButtons();
+                displayMaterials(materialListContainer, allMaterials);
+            });
+        }).start();
 
         ImageView addMaterialButton = findViewById(R.id.add_material);
         addMaterialButton.setOnClickListener(new View.OnClickListener() {
@@ -107,57 +114,5 @@ public class MaterialsActivity extends BaseActivity {
 
             filterBar.addView(btn);
         }
-    }
-
-
-    private void initializeMaterials() {
-        allMaterials = new ArrayList<>();
-
-        // Beispiel 1: Wolle
-        Wool merinoWool = new Wool(
-                "Merino 120",
-                "Bordeaux",
-                "Lana Grossa",
-                "120m / 50g",
-                "3",
-                "100% Merino Wool",
-                "Box A1",
-                ""
-        );
-
-        // Beispiel 2: Stricknadel
-        KnittingNeedle needle = new KnittingNeedle(
-                "Double Pointed",
-                "3.5 mm",
-                "20 cm",
-                "Bamboo",
-                "Drawer 3",
-                ""
-        );
-
-        // Beispiel 3: Häkelnadel
-        CrochetHook hook = new CrochetHook(
-                "3.0 mm",
-                "Ergonomic",
-                "Plastic",
-                "Drawer 2",
-                ""
-        );
-
-        // Beispiel 4: Sonstiges
-        OtherUtensil stitchMarker = new OtherUtensil(
-                "Stitch Marker",
-                "Heart-shaped",
-                "Plastic",
-                "10",
-                "Jar 1",
-                ""
-        );
-
-        // Alle zur Liste hinzufügen
-        allMaterials.add(merinoWool);
-        allMaterials.add(needle);
-        allMaterials.add(hook);
-        allMaterials.add(stitchMarker);
     }
 }
