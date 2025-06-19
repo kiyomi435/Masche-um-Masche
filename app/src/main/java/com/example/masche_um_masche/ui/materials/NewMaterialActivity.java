@@ -80,17 +80,16 @@ public class NewMaterialActivity extends Activity {
 
                 switch (selectedMaterialType) {
                     case "Wool":
-                        String nameWool = ((EditText) findViewById(R.id.edit_name)).getText().toString();
-                        String farbe = ((EditText) findViewById(R.id.edit_farbe)).getText().toString();
-                        String größe = ((EditText) findViewById(R.id.edit_Größe)).getText().toString();
-                        String länge = ((EditText) findViewById(R.id.edit_länge)).getText().toString();
-                        String menge = ((EditText) findViewById(R.id.edit_menge)).getText().toString();
-                        String zusammensetzung = ((EditText) findViewById(R.id.edit_zusammensetzung)).getText().toString();
-                        String lagerort = ((EditText) findViewById(R.id.edit_lagerort_stricken)).getText().toString();
-                        String notizenWool = ((EditText) findViewById(R.id.notes_wool)).getText().toString();
+                        String woolName = ((EditText) findViewById(R.id.edit_wool_name)).getText().toString();
+                        String color = ((EditText) findViewById(R.id.edit_wool_color)).getText().toString();
+                        String needleSize = ((EditText) findViewById(R.id.edit_wool_needle_size)).getText().toString();
+                        String stock = ((EditText) findViewById(R.id.edit_wool_stock)).getText().toString();
+                        String composition = ((EditText) findViewById(R.id.edit_wool_composition)).getText().toString();
+                        String storageLocationWool = ((EditText) findViewById(R.id.edit_wool_storage)).getText().toString();
+                        String notesWool = ((EditText) findViewById(R.id.edit_wool_notes)).getText().toString();
 
-                        material = new Wool(nameWool, farbe, größe, länge, menge, zusammensetzung, "", notizenWool);
-                        db.woolDao().insert((Wool) material);
+                        Wool wool = new Wool(woolName, color, needleSize, stock, composition, storageLocationWool, notesWool);
+                        db.woolDao().insert(wool);
                         break;
 
                     case "KnittingNeedle":
@@ -109,10 +108,10 @@ public class NewMaterialActivity extends Activity {
                         String gripType = ((EditText) findViewById(R.id.edit_crochet_hook_grip_type)).getText().toString();
                         String size = ((EditText) findViewById(R.id.edit_crochet_hook_size)).getText().toString();
                         String materialType = ((EditText) findViewById(R.id.edit_crochet_hook_material)).getText().toString();
-                        String storageLocation = ((EditText) findViewById(R.id.edit_crochet_hook_storage)).getText().toString();
-                        String notes = ((EditText) findViewById(R.id.edit_crochet_hook_notes)).getText().toString();
+                        String storageLocationCrochet = ((EditText) findViewById(R.id.edit_crochet_hook_storage)).getText().toString();
+                        String notesCrochet = ((EditText) findViewById(R.id.edit_crochet_hook_notes)).getText().toString();
 
-                        CrochetHook crochetHook = new CrochetHook(size, gripType, materialType, storageLocation, notes);
+                        CrochetHook crochetHook = new CrochetHook(size, gripType, materialType, storageLocationCrochet, notesCrochet);
                         db.crochetHookDao().insert(crochetHook);
                         break;
 

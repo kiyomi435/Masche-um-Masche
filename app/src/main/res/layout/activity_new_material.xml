@@ -75,61 +75,55 @@
         android:orientation="vertical"
         android:visibility="gone"
         android:padding="8dp">
+
         <EditText
-            android:id="@+id/edit_name"
+            android:id="@+id/edit_wool_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
             android:inputType="text" />
+
         <EditText
-            android:id="@+id/edit_farbe"
+            android:id="@+id/edit_wool_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Farbe"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
         <EditText
-            android:id="@+id/edit_Größe"
+            android:id="@+id/edit_wool_needle_size"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Größe"
-            android:inputType="text"
-            />
+            android:hint="Nadelgröße"
+            android:inputType="text" />
+
         <EditText
-            android:id="@+id/edit_länge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Länge"
-            android:inputType="text"
-            />
-        <EditText
-            android:id="@+id/edit_menge"
+            android:id="@+id/edit_wool_stock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Menge (in g)"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
         <EditText
-            android:id="@+id/edit_zusammensetzung"
+            android:id="@+id/edit_wool_composition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Zusammensetzung"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
         <EditText
-            android:id="@+id/edit_lagerort_wolle"
+            android:id="@+id/edit_wool_storage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Lagerort (optional)"
-            android:inputType="text"
-            />
+            android:inputType="text" />
 
         <EditText
-            android:id="@+id/notes_wool"
+            android:id="@+id/edit_wool_notes"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:gravity="top|start"
-            android:hint="Notizen Wolle (optional))"
+            android:hint="Notizen Wolle (optional)"
             android:inputType="textMultiLine"
             android:background="@android:drawable/edit_text"
             android:padding="10dp"

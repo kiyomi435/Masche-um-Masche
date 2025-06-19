@@ -9,39 +9,30 @@ public class Wool extends Material {
     private int id;
     private String color;
     private String needleSize;
-    private String lengthPerUnit;
     private String stock;
     private String composition;
-
-    // Optional fields
-
     private String brand;
-    private String gauge;
-    private String usageRecommendation;
-    private String careInstructions;
-    private String linkedProjects;
-    private String consumption;
-    private String purchaseDate;
-    private double price;
+    private String storageLocation;
+    private String notes;
 
     public Wool() {} // Für Room
     @Ignore
-    public Wool(String name, String color, String needleSize, String lengthPerUnit,
+    public Wool(String name, String color, String needleSize,
                 String stock, String composition, String storageLocation, String notes) {
 
         super(name + " – " + color, "Wool", storageLocation, notes);
         this.color = color;
         this.needleSize = needleSize;
-        this.lengthPerUnit = lengthPerUnit;
         this.stock = stock;
         this.composition = composition;
+        this.storageLocation = storageLocation;
+        this.notes = notes;
     }
 
     @Override
     public String getSummaryInfo() {
-        return brand + "\n" +
-                lengthPerUnit + "\n" +
-                stock + " skeins available\n" +
+        return needleSize + "\n" +
+                stock + " noch da\n" +
                 composition;
     }
 
@@ -54,9 +45,6 @@ public class Wool extends Material {
     public String getNeedleSize() { return needleSize; }
     public void setNeedleSize(String needleSize) { this.needleSize = needleSize; }
 
-    public String getLengthPerUnit() { return lengthPerUnit; }
-    public void setLengthPerUnit(String lengthPerUnit) { this.lengthPerUnit = lengthPerUnit; }
-
     public String getStock() { return stock; }
     public void setStock(String stock) { this.stock = stock; }
 
@@ -66,25 +54,19 @@ public class Wool extends Material {
     public String getBrand() { return brand; }
     public void setBrand(String brand) { this.brand = brand; }
 
-    public String getGauge() { return gauge; }
-    public void setGauge(String gauge) { this.gauge = gauge; }
+    public String getStorageLocation() {
+        return storageLocation;
+    }
 
-    public String getUsageRecommendation() { return usageRecommendation; }
-    public void setUsageRecommendation(String usageRecommendation) { this.usageRecommendation = usageRecommendation; }
+    public void setStorageLocation(String storageLocation) {
+        this.storageLocation = storageLocation;
+    }
 
-    public String getCareInstructions() { return careInstructions; }
-    public void setCareInstructions(String careInstructions) { this.careInstructions = careInstructions; }
+    public String getNotes() {
+        return notes;
+    }
 
-    public String getLinkedProjects() { return linkedProjects; }
-    public void setLinkedProjects(String linkedProjects) { this.linkedProjects = linkedProjects; }
-
-    public String getConsumption() { return consumption; }
-    public void setConsumption(String consumption) { this.consumption = consumption; }
-
-    public String getPurchaseDate() { return purchaseDate; }
-    public void setPurchaseDate(String purchaseDate) { this.purchaseDate = purchaseDate; }
-
-    public double getPrice() { return price; }
-    public void setPrice(double price) { this.price = price; }
-
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 }
