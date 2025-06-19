@@ -1,6 +1,7 @@
 package com.example.masche_um_masche.data.entity;
 
 import androidx.annotation.Nullable;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -12,8 +13,8 @@ public class Project {
     @PrimaryKey(autoGenerate = true)
     public int id;
     private String name;
-    @Nullable
-    public String fileUri; // Hier wird der Pfad (URI) gespeichert
+    @ColumnInfo(name = "pdf_uri")
+    public String pdfUri; // Hier wird der Pfad (URI) gespeichert
     @Ignore
     private List<ProjectPart> parts = new ArrayList<>();    private int currentRows;
     private int allRows;
@@ -30,9 +31,9 @@ public class Project {
     }
 
     @Ignore
-    public Project(String name, String fileUri) {
+    public Project(String name, String pdfUri) {
         this.name = name;
-        this.fileUri = fileUri;
+        this.pdfUri = pdfUri;
     }
 
     public int getId() {

@@ -1,7 +1,12 @@
 package com.example.masche_um_masche.ui.projectparts;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.pdf.PdfRenderer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -9,13 +14,14 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.masche_um_masche.R;
 import com.example.masche_um_masche.data.AppDatabase;
+import com.example.masche_um_masche.data.entity.Project;
 import com.example.masche_um_masche.data.entity.ProjectPart;
 
-public class ProjectPartActivity extends AppCompatActivity {
+import java.io.IOException;
+
+public class ProjectPartActivity extends Activity {
     private int currentRows = 0;
     private TextView currentRowText;
     private ProjectPart part;
@@ -25,18 +31,27 @@ public class ProjectPartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_part);
 
+        int projectId = getIntent().getIntExtra("projectId", -1);
         int partId = getIntent().getIntExtra("projectPartId", -1);
         AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+
 
         ImageView backButton = findViewById(R.id.back_button);
         setButtonListeners();
 
         new Thread(() -> {
             part = db.projectPartDao().getById(partId);
+            Project project = db.projectDao().getById(part.getProjectId()); // oder wie deine DAO-Methode heißt
             runOnUiThread(() -> {
                 // Fülle UI mit Daten
                 ((TextView) findViewById(R.id.current_row)).setText(String.valueOf(part.getCurrentRows()));
                 ((TextView) findViewById(R.id.text_part_name)).setText(part.getName());
+
+                if (project != null && project.pdfUri != null) {
+                    Uri pdfUri = Uri.parse(project.pdfUri);
+                    runOnUiThread(() -> renderPdf(pdfUri)); // Methode unten
+                }
+
                 ((ProgressBar) findViewById(R.id.progress_project)).setProgress(
                         (int) ((part.getCurrentRows() / (float) part.getAllRows()) * 100));
 
@@ -134,6 +149,29 @@ public class ProjectPartActivity extends AppCompatActivity {
             db.projectPartDao().update(part);
         }).start();
     }
+    public void renderPdf(Uri pdfUri) {
+        try {
+            ParcelFileDescriptor fileDescriptor = getContentResolver().openFileDescriptor(pdfUri, "r");
+            if (fileDescriptor != null) {
+                PdfRenderer pdfRenderer = new PdfRenderer(fileDescriptor);
+                PdfRenderer.Page page = pdfRenderer.openPage(0); // erste Seite
 
+                Bitmap bitmap = Bitmap.createBitmap(
+                        page.getWidth() * 2, // erhöhe Auflösung (optional)
+                        page.getHeight() * 2,
+                        Bitmap.Config.ARGB_8888
+                );
+                page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
+                page.close();
+                pdfRenderer.close();
+                fileDescriptor.close();
+
+                ImageView imageView = findViewById(R.id.pdf_image_view);
+                imageView.setImageBitmap(bitmap);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
