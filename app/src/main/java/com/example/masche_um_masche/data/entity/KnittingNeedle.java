@@ -13,8 +13,8 @@ public class KnittingNeedle extends Material {
     private String material;
 
     // Optional
-    private String condition;
-    private String brand;
+    private String storageLocation;
+    private String notes;
 
     public KnittingNeedle() {} // Für Room
     @Ignore
@@ -26,6 +26,8 @@ public class KnittingNeedle extends Material {
         this.size = size;
         this.length = length;
         this.material = material;
+        this.storageLocation = storageLocation;
+        this.notes = notes;
     }
 
     @Override
@@ -76,19 +78,19 @@ public class KnittingNeedle extends Material {
         this.material = material;
     }
 
-    public String getCondition() {
-        return condition;
+    public String getStorageLocation() {
+        return storageLocation;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void setStorageLocation(String storageLocation) {
+        this.storageLocation = storageLocation;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getNotes() {
+        return notes;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

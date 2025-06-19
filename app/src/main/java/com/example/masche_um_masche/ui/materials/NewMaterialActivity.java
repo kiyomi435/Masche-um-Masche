@@ -93,25 +93,26 @@ public class NewMaterialActivity extends Activity {
                         break;
 
                     case "KnittingNeedle":
-                        String nadeltyp = ((EditText) findViewById(R.id.edit_nadeltyp)).getText().toString();
-                        String nadelgröße = ((EditText) findViewById(R.id.edit_nadelgröße)).getText().toString();
-                        String nadellänge = ((EditText) findViewById(R.id.edit_nadellänge)).getText().toString();
-                        String nadelmaterial = ((EditText) findViewById(R.id.edit_nadelmaterial)).getText().toString();
-                        String lagerortStricken = ((EditText) findViewById(R.id.edit_lagerort_stricken)).getText().toString();
-                        String notizenStrick = ((EditText) findViewById(R.id.notes_knitting_needle)).getText().toString();
+                        String needleType = ((EditText) findViewById(R.id.edit_knitting_needle_type)).getText().toString();
+                        String sizeNeedle = ((EditText) findViewById(R.id.edit_knitting_needle_size)).getText().toString();
+                        String length = ((EditText) findViewById(R.id.edit_knitting_needle_length)).getText().toString();
+                        String materialTypeNeedle = ((EditText) findViewById(R.id.edit_knitting_needle_material)).getText().toString();
+                        String storage = ((EditText) findViewById(R.id.edit_knitting_needle_storage)).getText().toString();
+                        String notes = ((EditText) findViewById(R.id.edit_knitting_needle_notes)).getText().toString();
 
-                        material = new KnittingNeedle(nadeltyp, nadelgröße, nadellänge, nadelmaterial, lagerortStricken, notizenStrick);
-                        db.knittingNeedleDao().insert((KnittingNeedle) material);
+                        KnittingNeedle knittingNeedle = new KnittingNeedle(needleType, sizeNeedle, length, materialTypeNeedle, storage, notes);
+                        db.knittingNeedleDao().insert(knittingNeedle);
                         break;
+
 
                     case "CrochetHook":
                         String gripType = ((EditText) findViewById(R.id.edit_crochet_hook_grip_type)).getText().toString();
-                        String size = ((EditText) findViewById(R.id.edit_crochet_hook_size)).getText().toString();
-                        String materialType = ((EditText) findViewById(R.id.edit_crochet_hook_material)).getText().toString();
+                        String sizeHook = ((EditText) findViewById(R.id.edit_crochet_hook_size)).getText().toString();
+                        String materialTypeHook = ((EditText) findViewById(R.id.edit_crochet_hook_material)).getText().toString();
                         String storageLocationCrochet = ((EditText) findViewById(R.id.edit_crochet_hook_storage)).getText().toString();
                         String notesCrochet = ((EditText) findViewById(R.id.edit_crochet_hook_notes)).getText().toString();
 
-                        CrochetHook crochetHook = new CrochetHook(size, gripType, materialType, storageLocationCrochet, notesCrochet);
+                        CrochetHook crochetHook = new CrochetHook(sizeHook, gripType, materialTypeHook, storageLocationCrochet, notesCrochet);
                         db.crochetHookDao().insert(crochetHook);
                         break;
 
