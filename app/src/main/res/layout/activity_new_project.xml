@@ -57,6 +57,12 @@
         android:layout_height="wrap_content"
         android:text="wähle Pattern"
         android:layout_gravity="start" />
+    <TextView
+        android:id="@+id/selected_file_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keine Datei ausgewählt"
+        android:paddingTop="8dp"/>
 </LinearLayout>
 
 
