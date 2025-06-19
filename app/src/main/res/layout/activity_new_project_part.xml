@@ -58,7 +58,4 @@
             android:hint="Maschenanzahl"
             android:inputType="number" />
     </LinearLayout>
-
-
-
 </LinearLayout>

@@ -13,6 +13,12 @@
         android:theme="@style/Theme.MascheumMasche"
         tools:targetApi="31">
         <activity
+            android:name=".ui.projectparts.EditProjectPartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.projects.EditProjectActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.materials.NewMaterialActivity"
             android:exported="false" />
         <activity

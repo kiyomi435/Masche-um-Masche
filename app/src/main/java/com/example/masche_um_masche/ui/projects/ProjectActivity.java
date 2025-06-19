@@ -35,6 +35,12 @@ public class ProjectActivity extends Activity {
 
         findViewById(R.id.back_button).setOnClickListener(v -> finish());
 
+        findViewById(R.id.button_edit).setOnClickListener(v-> {
+            Intent intent = new Intent(ProjectActivity.this, EditProjectActivity.class);
+            intent.putExtra("project_id", projectId);
+            startActivity(intent);
+        });
+
         findViewById(R.id.add_project_part).setOnClickListener(v -> {
             Intent intent = new Intent(ProjectActivity.this, NewProjectPartActivity.class);
             intent.putExtra("projectId", projectId); // mitgeben!
