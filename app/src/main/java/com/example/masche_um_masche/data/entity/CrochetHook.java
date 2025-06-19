@@ -13,19 +13,20 @@ public class CrochetHook extends Material {
     private String material;
 
     // Optional
-    private String brand;
-    private String length;
-    private String condition;
+    private String storageLocation;
+    private String notes;
 
     public CrochetHook() {} // Für Room
     @Ignore
     public CrochetHook(String size, String gripType, String material,
                        String storageLocation, String notes) {
 
-        super(size + " mm – " + gripType, "Crochet Hook", storageLocation, notes);
+        super(size + " – " + gripType, "Crochet Hook", storageLocation, notes);
         this.size = size;
         this.gripType = gripType;
         this.material = material;
+        this.storageLocation = storageLocation;
+        this.notes = notes;
     }
 
     @Override
@@ -67,28 +68,20 @@ public class CrochetHook extends Material {
         this.material = material;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getStorageLocation() {
+        return storageLocation;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setStorageLocation(String storageLocation) {
+        this.storageLocation = storageLocation;
     }
 
-    public String getLength() {
-        return length;
+    public String getNotes() {
+        return notes;
     }
 
-    public void setLength(String length) {
-        this.length = length;
-    }
-
-    public String getCondition() {
-        return condition;
-    }
-
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }
 

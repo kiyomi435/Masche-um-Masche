@@ -106,14 +106,14 @@ public class NewMaterialActivity extends Activity {
                         break;
 
                     case "CrochetHook":
-                        String grifftyp = ((EditText) findViewById(R.id.edit_grifftyp)).getText().toString();
-                        String hakengröße = ((EditText) findViewById(R.id.edit_hakengröße)).getText().toString();
-                        String hakenmaterial = ((EditText) findViewById(R.id.edit_hakenmaterial)).getText().toString();
-                        String lagerortHook = ((EditText) findViewById(R.id.edit_lagerort)).getText().toString();
-                        String notizenHook = ((EditText) findViewById(R.id.notes_crochet_hook)).getText().toString();
+                        String gripType = ((EditText) findViewById(R.id.edit_crochet_hook_grip_type)).getText().toString();
+                        String size = ((EditText) findViewById(R.id.edit_crochet_hook_size)).getText().toString();
+                        String materialType = ((EditText) findViewById(R.id.edit_crochet_hook_material)).getText().toString();
+                        String storageLocation = ((EditText) findViewById(R.id.edit_crochet_hook_storage)).getText().toString();
+                        String notes = ((EditText) findViewById(R.id.edit_crochet_hook_notes)).getText().toString();
 
-                        material = new CrochetHook(hakengröße, grifftyp, hakenmaterial, lagerortHook, notizenHook);
-                        db.crochetHookDao().insert((CrochetHook) material);
+                        CrochetHook crochetHook = new CrochetHook(size, gripType, materialType, storageLocation, notes);
+                        db.crochetHookDao().insert(crochetHook);
                         break;
 
                     case "Others":
