@@ -254,61 +254,55 @@
         android:orientation="vertical"
         android:visibility="gone"
         android:padding="8dp">
+
         <EditText
-            android:id="@+id/edit_gegenstand_art"
+            android:id="@+id/edit_other_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Gegegenstand Art"
-            android:inputType="text"
-            />
+            android:hint="Gegenstandsart"
+            android:inputType="text" />
+
         <EditText
-            android:id="@+id/edit_beschreibung"
+            android:id="@+id/edit_other_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Beschreibung"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
         <EditText
-            android:id="@+id/edit_utensil_material"
+            android:id="@+id/edit_other_material"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Material"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
         <EditText
-            android:id="@+id/edit_utensil_menge"
+            android:id="@+id/edit_other_quantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Menge"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
         <EditText
-            android:id="@+id/edit_utensil_farbe"
+            android:id="@+id/edit_other_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Farbe"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
         <EditText
-            android:id="@+id/edit_utensil_gebrauch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Gebrauch"
-            android:inputType="text"
-            />
-        <EditText
-            android:id="@+id/edit_utensil_location"
+            android:id="@+id/edit_other_storage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Lagerort"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
         <EditText
-            android:id="@+id/notes_other"
+            android:id="@+id/edit_other_notes"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:gravity="top|start"
-            android:hint="Notizen Sonstiges (optional))"
+            android:hint="Notizen Sonstiges (optional)"
             android:inputType="textMultiLine"
             android:background="@android:drawable/edit_text"
             android:padding="10dp"
@@ -318,4 +312,5 @@
             android:scrollbars="vertical"
             android:overScrollMode="always" />
     </LinearLayout>
+
 </LinearLayout>

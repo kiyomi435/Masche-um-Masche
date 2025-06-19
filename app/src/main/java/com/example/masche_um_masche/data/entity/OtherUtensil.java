@@ -15,12 +15,12 @@ public class OtherUtensil extends Material {
 
     // Optional
     private String color;
-    private String usage;
+    private String storageLocation;
     private String notes;
 
     public OtherUtensil() {} // Für Room
     @Ignore
-    public OtherUtensil(String itemType, String description, String material, String quantity,
+    public OtherUtensil(String itemType, String description, String material, String quantity, String color,
                        String storageLocation, String notes) {
 
         super(itemType + " – " + description, "Other", storageLocation, notes);
@@ -28,6 +28,8 @@ public class OtherUtensil extends Material {
         this.description = description;
         this.material = material;
         this.quantity = quantity;
+        this.color = color;
+        this.storageLocation = storageLocation;
         this.notes = notes;
     }
 
@@ -86,12 +88,12 @@ public class OtherUtensil extends Material {
         this.color = color;
     }
 
-    public String getUsage() {
-        return usage;
+    public String getStorageLocation() {
+        return storageLocation;
     }
 
-    public void setUsage(String usage) {
-        this.usage = usage;
+    public void setStorageLocation(String storageLocation) {
+        this.storageLocation = storageLocation;
     }
 
     public String getNotes() {

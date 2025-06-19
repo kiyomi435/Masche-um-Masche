@@ -117,17 +117,18 @@ public class NewMaterialActivity extends Activity {
                         break;
 
                     case "Others":
-                        String gegenstandart = ((EditText) findViewById(R.id.edit_gegenstand_art)).getText().toString();
-                        String beschreibung = ((EditText) findViewById(R.id.edit_beschreibung)).getText().toString();
-                        String utensil_material = ((EditText) findViewById(R.id.edit_utensil_material)).getText().toString();
-                        String utensil_menge = ((EditText) findViewById(R.id.edit_utensil_menge)).getText().toString();
-                        String utensil_farbe = ((EditText) findViewById(R.id.edit_utensil_farbe)).getText().toString();
-                        String utensil_gebrauch = ((EditText) findViewById(R.id.edit_utensil_gebrauch)).getText().toString();
-                        String utensil_location = ((EditText) findViewById(R.id.edit_utensil_location)).getText().toString();
-                        String notizenOther = ((EditText) findViewById(R.id.notes_other)).getText().toString();
-                        material = new OtherUtensil(gegenstandart, beschreibung, utensil_material, utensil_menge, utensil_location, notizenOther);
-                        db.otherUtensilDao().insert((OtherUtensil) material);
+                        String itemType = ((EditText) findViewById(R.id.edit_other_type)).getText().toString();
+                        String description = ((EditText) findViewById(R.id.edit_other_description)).getText().toString();
+                        String materialOther = ((EditText) findViewById(R.id.edit_other_material)).getText().toString();
+                        String quantity = ((EditText) findViewById(R.id.edit_other_quantity)).getText().toString();
+                        String colorOther = ((EditText) findViewById(R.id.edit_other_color)).getText().toString();
+                        String storageOther = ((EditText) findViewById(R.id.edit_other_storage)).getText().toString();
+                        String notesOther = ((EditText) findViewById(R.id.edit_other_notes)).getText().toString();
+
+                        OtherUtensil otherUtensil = new OtherUtensil(itemType, description, materialOther, quantity, colorOther, storageOther, notesOther);
+                        db.otherUtensilDao().insert(otherUtensil);
                         break;
+
                 }
 
                 runOnUiThread(this::finish);
